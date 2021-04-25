@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <input type="password" #password="ngModel" id="password" class="form-control" name="password" placeholder="password" ngModel required>
+    <input type="password" #password="ngModel" id="password" class="form-control" name="password" placeholder="Password" ngModel required>
     
     <div *ngIf="password && password.invalid && (password.touched || password.dirty)" class="alert alert-danger">
         <div *ngIf="password && password?.errors?.required">
