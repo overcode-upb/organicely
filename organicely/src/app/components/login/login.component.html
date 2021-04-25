@@ -14,7 +14,7 @@
                  required>
           <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)"
                class="alert alert-danger">
-            <div *ngIf="emailUI.errors.required">
+            <div *ngIf="emailUI?.errors?.required">
               Name is required
             </div>
           </div>
@@ -29,8 +29,8 @@
                  required>
           <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)"
                class="alert alert-danger">
-            <div *ngIf="passwordUI.errors.required">
-              Name is required
+            <div *ngIf="passwordUI?.errors?.required">
+              Password is required
             </div>
           </div>
         </mat-form-field>

@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if(this.authService.verifyLogged()){
-      this.router.navigate(['home1']);
+      this.router.navigate(['home']);
     }
   }
 
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     }).subscribe(
       res => {
         console.log('LOGIN RESPONSE: ', res);
-        this.router.navigate(['home1']);
+        this.router.navigate(['home']);
       },
       err => {
         console.log('LOGIN ERROR: ');

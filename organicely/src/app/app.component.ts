@@ -13,10 +13,6 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit(): void {
-     this.router.navigate(['login']);
-  }
-
-  showLogin(): void {
-    this.router.navigateByUrl('login');
+     this.router.navigate(['home']);
   }
 }
