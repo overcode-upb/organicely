@@ -7,7 +7,7 @@ import { AuthService } from '../shared/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
  constructor(private router: Router, private authService: AuthService) { 
   }
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   onRegister(){
-    //this.router.navigate(['registration']);
-    console.log('Arreglar');
+    this.router.navigate(['registration']);
+    //console.log('Arreglar');
   }
 }

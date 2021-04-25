@@ -11,9 +11,7 @@ import { RegisterComponent } from './login/register/register.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegisterComponent
-    
+    AppComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +21,9 @@ import { RegisterComponent } from './login/register/register.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent],
   exports: [ 
    

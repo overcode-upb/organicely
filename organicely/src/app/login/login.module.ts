@@ -22,7 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     ReactiveFormsModule
   ],
   declarations: [
-    LoginComponent,
+    LoginComponent
   ]
 })
 export class LoginModule { }
