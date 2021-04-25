@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from './register/register.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
