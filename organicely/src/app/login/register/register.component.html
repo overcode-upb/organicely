@@ -1,1 +1,43 @@
-<p>register works!</p>
+<mat-card class="example-card" style="width:900px">
+    <mat-card-header style="padding-left: 180px">
+        <mat-card-title>REGISTER</mat-card-title>
+    </mat-card-header>
+    
+    <mat-card-content>
+        <form #form="ngForm" style="display: flex; flex-direction: column;">
+            <mat-form-field>
+                <mat-label>Ingresa tu E-mail</mat-label>
+                <input matInput type="text" name="email" ngModel #emailUI="ngModel" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Contraseña</mat-label>
+                <input matInput type="password" name="password" ngModel #passwordUI="ngModel" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Escribe tu Nombre</mat-label>
+                <input matInput type="text" name="nombre" ngModel #nombreUI="ngModel" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Escribe tu Apellido</mat-label>
+                <input matInput type="text" name="apellido" ngModel #apellidoUI="ngModel" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Imagen</mat-label>
+                <input matInput type="text" name="imagen" ngModel #imagenUI="ngModel" required>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Bio</mat-label>
+                <input matInput type="text" name="bio" ngModel #bioUI="ngModel" value="">
+            </mat-form-field>
+        </form>
+    </mat-card-content>
+
+    <mat-card-actions style="text-align:center">
+        <button mat-button (click)="onRegister(form)">Registrarse</button>
+    </mat-card-actions>
+</mat-card>

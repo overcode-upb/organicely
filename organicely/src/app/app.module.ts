@@ -7,26 +7,32 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from './login/register/register.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegisterComponent
-    
+    AppComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    HttpClientModule
+    MatCardModule,
+    MatButtonModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent],
-  exports: [ 
-   
+  exports: [
+
   ],
 })
 export class AppModule { }
