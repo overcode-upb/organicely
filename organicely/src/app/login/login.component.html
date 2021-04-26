@@ -1,4 +1,4 @@
-<mat-card class="example-card">
+<mat-card>
     <mat-card-header>
       <mat-card-title>LOGIN</mat-card-title>
     </mat-card-header>
@@ -17,7 +17,7 @@
         <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)"
                class="alert alert-danger">
             <div *ngIf="emailUI?.errors?.required">
-              Name is required
+              Email is required
             </div>
         </div>
 
@@ -44,4 +44,4 @@
       <button mat-button [disabled]="form.invalid" (click)="onLogin(form)">Login</button>
       <button mat-button  (click)="onRegister()" >Registrarse</button>
     </mat-card-actions>  
-  </mat-card>
+</mat-card>
