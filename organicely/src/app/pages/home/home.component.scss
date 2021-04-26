@@ -19,13 +19,11 @@ body {
 .title {
     color: #FFF;
     font-size: 4.5rem;
-    text-shadow: 1px 1px 2px #000000;
     font-family: 'Lato', sans-serif;
 }
 
 .text {
     font-size: 1.1rem;
-    text-shadow: 1px 1px 2px #000000;
     font-family: 'Lato', sans-serif;
 }
 
@@ -36,4 +34,23 @@ body {
 .blue {
     background-color: #586DE0;
     height: 100%;
+}
+
+.pink {
+    background-color: #EBCADF;
+    height: 100%;
+}
+
+.container{
+    display: flex;
+}
+    
+.column {
+    flex: 50%;
+}
+
+.size-img {
+   
+    width:540px; /* you can use % */
+    height: auto;
 }
