@@ -21,6 +21,15 @@ export class AuthService {
     );
   }
 
+  public register(body: any): Observable<any> {
+    return this.http.post(`${this.url}/v1/accounts:signUp?key=${this.key}`, body).pipe(
+      map((res: any) => {
+        this.authSucess(res.idToken, res.localId);
+        return res;
+      })
+    );
+  }
+
   private authSucess(token:string, userId:string):void{
     localStorage.setItem('auth',token);
     localStorage.setItem('userId',userId);

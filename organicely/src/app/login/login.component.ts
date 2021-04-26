@@ -14,7 +14,7 @@ export class LoginComponent {
 
   ngOnInit() {
     if(this.authService.verifyLogged()){
-      this.router.navigate(['home']);
+      this.router.navigate(['../pages/home']);
     }
   }
 
@@ -27,7 +27,7 @@ export class LoginComponent {
     }).subscribe(
       res => {
         console.log('LOGIN RESPONSE: ', res);
-        this.router.navigate(['home']);
+        this.router.navigate(['../pages/home']);
       },
       err => {
         console.log('LOGIN ERROR: ');
@@ -36,7 +36,7 @@ export class LoginComponent {
   }
 
   onRegister(){
-    this.router.navigate(['registration']);
+    this.router.navigate(['/login/register']);
     //console.log('Arreglar');
   }
 }

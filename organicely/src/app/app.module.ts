@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './login/register/register.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { RegisterComponent } from './login/register/register.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     AuthService
