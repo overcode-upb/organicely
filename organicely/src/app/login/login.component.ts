@@ -7,14 +7,14 @@ import { AuthService } from '../shared/services/auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
  constructor(private router: Router, private authService: AuthService) { 
   }
 
   ngOnInit() {
     if(this.authService.verifyLogged()){
-      this.router.navigate(['home']);
+      this.router.navigate(['../pages/home']);
     }
   }
 
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     }).subscribe(
       res => {
         console.log('LOGIN RESPONSE: ', res);
-        this.router.navigate(['home']);
+        this.router.navigate(['../pages/home']);
       },
       err => {
         console.log('LOGIN ERROR: ');
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
   }
 
   onRegister(){
-    //this.router.navigate(['registration']);
-    console.log('Arreglar');
+    this.router.navigate(['/login/register']);
+    //console.log('Arreglar');
   }
 }
