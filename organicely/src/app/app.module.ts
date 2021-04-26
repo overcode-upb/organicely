@@ -7,15 +7,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
-import { RegisterComponent } from './login/register/register.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    RegisterComponent
-    
+    AppComponent
   ],
   imports: [
     CommonModule,
@@ -28,8 +25,8 @@ import { MatButtonModule } from '@angular/material/button';
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
-  exports: [ 
-   
+  exports: [
+
   ],
 })
 export class AppModule { }

@@ -1,17 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile.component';
-import { ListEventsModule } from '../list-events/list-events.module';
+import {ListEventsModule} from '../list-events/list-events.module';
+import {HomeModule} from '../home/home.module';
 
 @NgModule({
   declarations: [
     ProfileComponent
   ],
   imports: [
-    CommonModule,
-    HomeModule,
-    ListEventsModule
+    ListEventsModule,
+    HomeModule
   ],
   exports: []
 })
-export class HomeModule { }
+export class ProfileModule { }

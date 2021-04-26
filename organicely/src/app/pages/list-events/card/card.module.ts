@@ -9,9 +9,11 @@ import { CardComponent } from './card.component';
 @NgModule({
   declarations: [CardComponent],
   imports: [
-    CommonModule,
     MatCardModule,
     MatButtonModule
+  ],
+  exports: [
+    CardComponent
   ]
 })
 export class CardModule { }

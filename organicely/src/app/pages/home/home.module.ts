@@ -1,13 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { HomeComponent } from './home.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { RouterModule, Routes } from '@angular/router';
-
-const routes:Routes = [
-  {path: '', component:HomeComponent}  
-]
+import {HomeRoutingModule} from './home-routing.module';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,8 +12,11 @@ const routes:Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    HomeRoutingModule
   ],
-  exports: [RouterModule, NavbarComponent]
+  exports: [
+    NavbarComponent,
+    HomeComponent
+  ]
 })
 export class HomeModule { }

@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './home/home.component';
 import { PagesComponent } from './pages.component';
 import { ProfileComponent } from './profile/profile.component';
+import {CreateEventComponent} from './create-event/create-event.component';
 
 const routes: Routes = [
   {
@@ -11,7 +11,9 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo:'home', pathMatch:'full'},
       {path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomeModule)},
-      {path: 'profile', component: ProfileComponent}
+      {path: 'levent', loadChildren: () => import('./list-events/list-events.module').then(m => m.ListEventsModule)},
+      {path: 'profile', component: ProfileComponent},
+      {path: 'crevent', component: CreateEventComponent}
     ]
   }
 ];

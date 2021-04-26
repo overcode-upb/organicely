@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
-import { HomeModule } from './home/home.module';
-import { ProfileComponent } from './profile/profile.component';
-import { CardComponent } from './list-events/card/card.component';
+import {CreateEventComponent} from './create-event/create-event.component';
 
 
 @NgModule({
-  declarations: [PagesComponent, ProfileComponent],
+  declarations: [
+    PagesComponent,
+    CreateEventComponent
+  ],
   imports: [
     CommonModule,
-    PagesRoutingModule,
-    HomeModule
+    PagesRoutingModule
   ]
 })
 export class PagesModule { }
