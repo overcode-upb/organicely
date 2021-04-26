@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service'
 import { UsersService } from '../../shared/services/users.service';
 import { Subscription } from 'rxjs';
-import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -54,7 +53,9 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-
+  ngOnDestroy(): void {
+    this.userSub ? this.userSub.unsubscribe() : '';
+  }
 
   /*
 	email
