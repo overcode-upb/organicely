@@ -20,7 +20,6 @@ import { RegisterComponent } from './login/register/register.component';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
     HttpClientModule
   ],
   providers: [AuthService],
