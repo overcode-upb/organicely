@@ -18,8 +18,7 @@ import { MatInputModule } from '@angular/material/input';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule,
-    ReactiveFormsModule
+    MatInputModule
   ],
   declarations: [
     LoginComponent,
