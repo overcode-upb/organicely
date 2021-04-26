@@ -18,6 +18,6 @@ const routes:Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule, NavbarComponent]
 })
 export class HomeModule { }
