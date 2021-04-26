@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { PagesRoutingModule } from './pages-routing.module';
 import { CreateEventComponent } from './create-event/create-event.component';
-import { SeeEventComponent } from './see-event/see-event.component';
 import { ListEventsComponent } from './list-events/list-events.component';
 
 
 @NgModule({
-  declarations: [CreateEventComponent, SeeEventComponent, ListEventsComponent],
+  declarations: [CreateEventComponent, ListEventsComponent],
   imports: [
     CommonModule,
     PagesRoutingModule
