@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { NavbarComponent } from '../home/navbar/navbar.component';
-import { RouterModule, Routes } from '@angular/router';
 import { ProfileComponent } from './profile.component';
+import { ListEventsModule } from '../list-events/list-events.module';
 
 @NgModule({
   declarations: [
@@ -11,8 +9,9 @@ import { ProfileComponent } from './profile.component';
   ],
   imports: [
     CommonModule,
-    NavbarComponent
+    HomeModule,
+    ListEventsModule
   ],
-  exports: [RouterModule]
+  exports: []
 })
 export class HomeModule { }

@@ -5,6 +5,7 @@ import { PagesRoutingModule } from './pages-routing.module';
 import { PagesComponent } from './pages.component';
 import { HomeModule } from './home/home.module';
 import { ProfileComponent } from './profile/profile.component';
+import { CardComponent } from './list-events/card/card.component';
 
 
 @NgModule({

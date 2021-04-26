@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from './shared/services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterComponent } from './login/register/register.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { RegisterComponent } from './login/register/register.component';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    MatCardModule,
+    MatButtonModule,
     HttpClientModule
   ],
   providers: [AuthService],
