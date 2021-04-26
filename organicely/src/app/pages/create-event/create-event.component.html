@@ -1,4 +1,18 @@
-<input type="text" value="{{name}}" placeholder="Nombre">
-<input type="text" value="{{description}}" placeholder="Descripción">
-<input type="text" value="{{image_url}}" placeholder="Link imagen (por ahora cualquiera, luego pondremos storage)">
-<button (click)="createEvent()">Crear evento</button>
+<input type="text" value="{{name}}" placeholder="Nombre"/>
+<input type="text" value="{{description}}" placeholder="Descripción"/>
+<input type="file"
+       class="text-nowrap text-truncate"
+       (change)="selectFile($event)"/>
+<button (click)="createEvent()" [disabled]="!selectedFiles">Crear evento</button>
+<div *ngIf="currentFileUpload" class="progress mt-2">
+  <div
+    class="progress-bar progress-bar-info"
+    role="progressbar"
+    attr.aria-valuenow="{{ percentage }}"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    [ngStyle]="{ width: percentage + '%' }"
+  >
+    {{ percentage }}%
+  </div>
+</div>

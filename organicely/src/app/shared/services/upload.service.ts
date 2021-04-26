@@ -37,10 +37,6 @@ export class UploadService {
     this.db.list(this.basePath).push(upload);
   }
 
-  getFiles(numberItems): AngularFireList<Upload> {
-    return this.db.list(this.basePath, ref => ref.limitToLast(numberItems))
-  }
-
   deleteFile(upload: Upload): void {
     this.deleteFileDatabase(upload.key)
       .then(() => {

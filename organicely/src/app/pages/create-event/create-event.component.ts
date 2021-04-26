@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EventService} from '../../shared/services/event.service';
+import {Upload} from './upload';
+import {UploadService} from '../../shared/services/upload.service';
 
 @Component({
   selector: 'app-create-event',
@@ -11,7 +13,12 @@ export class CreateEventComponent implements OnInit {
   description: string;
   image_url: string;
 
-  constructor(private eventService: EventService) { }
+  selectedFiles: FileList;
+  currentFileUpload: Upload;
+  percentage: number;
+
+  constructor(private eventService: EventService,
+              private uploadService: UploadService) { }
 
   ngOnInit(): void {
   }
@@ -23,5 +30,24 @@ export class CreateEventComponent implements OnInit {
       image_url: this.image_url,
       email: localStorage.getItem("userEmail")
     })
+  }
+
+  selectFile(event): void {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload(): void {
+    const file = this.selectedFiles.item(0);
+    this.selectedFiles = undefined;
+    this.formularioForm.value.image_Url = localStorage.getItem('imageURL');
+
+    this.currentFileUpload = new Upload(file);
+    this.uploadService.uploadFileToStorage(this.currentFileUpload).subscribe(
+      percentage => {
+        this.percentage = Math.round(percentage);
+      }, err => {
+        console.log(err);
+      }
+    );
   }
 }
