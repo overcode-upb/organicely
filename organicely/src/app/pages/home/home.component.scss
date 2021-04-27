@@ -1,10 +1,11 @@
 body {
-	font-family: 'Latto', sans-serif;
+	font-family: 'Lato', sans-serif;
     background-color: #586DE0 !important;
     font-weight: bold;
 }
 
 .btn-banner {
+    font-family: 'Lato', sans-serif !important;
     background-color: #A849A4;
     color: #FFF;
     border: none;
@@ -20,12 +21,12 @@ body {
 .title {
     color: #FFF;
     font-size: 4.5rem;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif !important;
 }
 
 .text {
     font-size: 1.1rem;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif !important;
 }
 
 .banner-text {
