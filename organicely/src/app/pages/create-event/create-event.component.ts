@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { EventService } from '../../shared/services/event.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
 @Component({
   selector: 'app-create-event',
@@ -10,12 +11,15 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./create-event.component.scss']
 })
 export class CreateEventComponent implements OnInit {
+  @Output()
+  dateChange: EventEmitter<MatDatepickerInputEvent<any>> = new EventEmitter();
 
-	eventSub: Subscription;
+
+  eventSub: Subscription;
 	userSub: Subscription;
 	userEmail = "";
 
-  constructor(private router: Router, 
+  constructor(private router: Router,
   						private eventService: EventService,
   						private authService: AuthService) { }
 
@@ -34,7 +38,7 @@ export class CreateEventComponent implements OnInit {
   	// combinando los dos a un new Date() a un TIMESTAMP
   	// se pone el TIMESTAMP en el campo date_time y listo.
   	this.eventService.createEvent({
-  		date_time: /* lol */,
+  		date_time: form.value.date,
   		description: form.value.description,
   		event_id: form.value.event_id,
   		event_url: form.value.event_url,
@@ -66,4 +70,7 @@ export class CreateEventComponent implements OnInit {
 		platform
   */
 
+  onDateChange(date: any) {
+    this.dateChange.emit();
+  }
 }
