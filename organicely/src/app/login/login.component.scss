@@ -1,0 +1,46 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-card {
+  margin: 50px;
+  padding: 50px;
+}
+.example-full-width {
+  width: 100%;
+}
+
+h1 {
+  color: white;
+  padding-top: 10%;
+  padding-bottom: 20px;
+  font-size: 4rem;
+}
+
+.blue {
+  background-color: #586DE0;
+  height: 100%;
+ 
+}
+
+.container{
+  display: flex;
+  height: 400px;
+  backdrop-filter: blur(3px) saturate(100%) contrast(45%) brightness(125%);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    border-radius: 20px !important;
+    width:  1000px;
+    height: 450 px;
+    background-color: rgba(255, 255, 255, .15);
+}
+  
+.column {
+  flex: 50%;
+}
+
+.size-img {
+  width:600px; 
+  height: auto;
+}
