@@ -19,12 +19,13 @@ export class CreateEventComponent implements OnInit {
   						private eventService: EventService,
   						private authService: AuthService) { }
 
+  
   ngOnInit(): void {
-  	this.authService.getLoggedInEmail({ idToken: localStorage.getItem("auth")}).subscribe(
+  	/*this.authService.getLoggedInEmail({ idToken: localStorage.getItem("auth")}).subscribe(
   		res => {
   			this.userEmail = res.users.email
   		}
-  	)
+  	)*/
   }
 
   onCreateEvent(form: any) {
@@ -34,7 +35,7 @@ export class CreateEventComponent implements OnInit {
   	// combinando los dos a un new Date() a un TIMESTAMP
   	// se pone el TIMESTAMP en el campo date_time y listo.
   	this.eventService.createEvent({
-  		date_time: /* lol */,
+  		date_time: form.hour.emit(),
   		description: form.value.description,
   		event_id: form.value.event_id,
   		event_url: form.value.event_url,
