@@ -36,6 +36,10 @@ export class AuthService {
     localStorage.setItem('email', email);
   }
 
+  public getLoggedInEmail(body: any): Observable<any> {
+    return this.http.post(`${this.url}/v1/accounts:lookup?key=${this.key}`, body);
+  }  
+
   public getToken():string|null{
     return localStorage.getItem('auth');
   }

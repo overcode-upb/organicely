@@ -11,6 +11,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
 import { ListEventsComponent } from './list-events/list-events.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+
 
 
 @NgModule({
@@ -28,7 +35,13 @@ import { ProfileComponent } from './profile/profile.component';
     CommonModule,
     PagesRoutingModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    NgxMaterialTimepickerModule
   ]
 })
 export class PagesModule { }
