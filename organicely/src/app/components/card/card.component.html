@@ -1,8 +1,9 @@
-<mat-card class="example-card">
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+<mat-card class="example-card" style="margin-right: 20px;">
+    <img mat-card-image src="{{ urlImage }}" alt="Photo of a Shiba Inu">
     <mat-card-content>
-      <p> <strong> Horario: </strong> HARD</p>
-      <p> <strong> Descripción: </strong> HARD</p>
+      <h3><strong> {{ nombre }} </strong></h3>
+      <p> <strong> Horario: </strong> {{ horario }}</p>
+      <p> <strong> Descripción: </strong> {{ descripcion }}</p>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>Más información</button>

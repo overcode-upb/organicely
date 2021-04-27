@@ -9,13 +9,11 @@ export class CardComponent implements OnInit {
 
   constructor() { }
 
-  @Input () name:string;
-  @Input () size:string;
+  @Input () nombre:string;
+  @Input () horario:string;
   @Input () urlImage:string;
-  @Input () stock:number;
-  @Input () type:string;
-  
-  @Input () product:any;
+  @Input () descripcion:string;
+  @Input () urlInfo:string;
 
   ngOnInit(): void {
   }

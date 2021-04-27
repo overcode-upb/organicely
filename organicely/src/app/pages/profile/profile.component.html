@@ -21,9 +21,10 @@
     <button type="button" class="btn btn-dark mx-2"> + Ver más eventos </button>
   </div>
   <div style="display: flex;">
-    <app-card style="flex: 1 1 auto;" class="mx-2"></app-card>
-    <app-card style="flex: 1 1 auto;" class="mx-2"></app-card>
-    <app-card style="flex: 1 1 auto;" class="mx-2"></app-card>
+    <div *ngFor="let event of events">
+      <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
+      descripcion={{event.descripcion}} urlInfo={{event.urlInfo}} urlImage={{event.urlImage}}></app-card>
+    </div>
   </div>
 </div>
 
@@ -43,7 +44,10 @@
     <h2> Eventos pasados</h2>
   </div>
   <div style="display: flex;">
-    <app-card style="flex: 1 1 auto;" class="mx-2"></app-card>
+    <div *ngFor="let event of pastevents">
+      <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
+    descripcion={{event.descripcion}} urlInfo={{event.urlInfo}} urlImage={{event.urlImage}}></app-card>
+    </div>
   </div>
 </div>
 
