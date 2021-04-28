@@ -22,11 +22,11 @@ export class CreateEventComponent implements OnInit {
 
   
   ngOnInit(): void {
-  	/*this.authService.getLoggedInEmail({ idToken: localStorage.getItem("auth")}).subscribe(
+  	this.authService.getLoggedInEmail({ idToken: localStorage.getItem("auth")}).subscribe(
   		res => {
   			this.userEmail = res.users.email
   		}
-  	)*/
+  	)
   }
 
   timeData(time:string){
@@ -48,7 +48,7 @@ export class CreateEventComponent implements OnInit {
   		image_url: "",
   		// ^ to be implemented
   		name: form.value.name,
-  		owner_email: localStorage.getItem('email'),
+  		owner_email: this.userEmail,
   		password: form.value.password,
   		platform: form.value.platform
   	}).subscribe(
