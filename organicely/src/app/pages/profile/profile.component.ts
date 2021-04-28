@@ -17,9 +17,12 @@ export class ProfileComponent implements OnInit {
 
     userEmail ="";
     userl = false;
+    currentUser = [];
 
   ngOnInit(): void {
     console.log(this.getCurrentUser());
+
+    
   }
 
   checkSession(){
