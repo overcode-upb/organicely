@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, 
+    private authService: AuthService,
+    private http: HttpClient) { }
+
+    userEmail ="";
+    userl = false;
+
+  ngOnInit(): void {
+    console.log(this.getCurrentUser());
+  }
+
+  checkSession(){
+    return this.authService.verifyLogged();
+  }
+
+
+  public getCurrentUser() : Observable<any>{
+    return this.http.get(`https://organicely-default-rtdb.firebaseio.com/user.json?orderBy="ownerId"&equalTo="${localStorage.getItem('auth')}"&print=pretty`);
+  }
 
   events =  [
       {
@@ -36,7 +58,6 @@ export class ProfileComponent implements OnInit {
       },
     ]
 
-  ngOnInit(): void {
-  }
+  
 
 }
