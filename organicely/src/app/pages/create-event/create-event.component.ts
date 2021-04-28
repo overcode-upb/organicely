@@ -15,6 +15,13 @@ export class CreateEventComponent implements OnInit {
 	userSub: Subscription;
 	userEmail = "";
 	time = '';
+	
+	eventobj = {
+		eventDate: "Date",
+	}
+	dateobj = this.eventobj.eventDate; 
+	
+	
 
   constructor(private router: Router, 
   						private eventService: EventService,
@@ -33,6 +40,10 @@ export class CreateEventComponent implements OnInit {
 	this.time = time;
   }
 
+  onDateChange(){
+
+  }
+
   onCreateEvent(form: any) {
 	  
   	// Crear un TIMESTAMP usando form.value.date y time
@@ -40,8 +51,10 @@ export class CreateEventComponent implements OnInit {
   	// time: sale del ngx-timepicker, @Output: timeChanged
   	// combinando los dos a un new Date() a un TIMESTAMP
   	// se pone el TIMESTAMP en el campo date_time y listo.
-  	this.eventService.createEvent({
-  		date_time: form.value.date.concat("-",this.time),
+	console.log(this.eventobj.eventDate);
+	console.log(this.dateobj);
+  	/*this.eventService.createEvent({
+  		date_time: form.value.date + this.time,
   		description: form.value.description,
   		event_id: form.value.event_id,
   		event_url: form.value.event_url,
@@ -58,7 +71,7 @@ export class CreateEventComponent implements OnInit {
   		err => {
   			console.log("Error...: ", err)
   		}
-  	);
+  	);*/
   }
 
   /*
