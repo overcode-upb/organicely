@@ -48,6 +48,10 @@ export class AuthService {
     return localStorage.getItem('userId');
   }
 
+  public getEmail():string|null{
+    return localStorage.getItem('email');
+  }
+
   public verifyLogged():boolean{
     const token = localStorage.getItem('auth');
     return !!token;
