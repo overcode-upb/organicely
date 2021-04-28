@@ -15,7 +15,7 @@ export class AuthService {
   public login(body: any): Observable<any> {
     return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body).pipe(
       map((res: any) => {
-        this.authSucess(res.idToken, res.localId);
+        this.authSucess(res.idToken, res.localId, res.email);
         return res;
       })
     );
@@ -24,16 +24,21 @@ export class AuthService {
   public register(body: any): Observable<any> {
     return this.http.post(`${this.url}/v1/accounts:signUp?key=${this.key}`, body).pipe(
       map((res: any) => {
-        this.authSucess(res.idToken, res.localId);
+        this.authSucess(res.idToken, res.localId, res.email);
         return res;
       })
     );
   }
 
-  private authSucess(token:string, userId:string):void{
+  private authSucess(token:string, userId:string, email:string):void{
     localStorage.setItem('auth',token);
     localStorage.setItem('userId',userId);
+    localStorage.setItem('email', email);
   }
+
+  public getLoggedInEmail(body: any): Observable<any> {
+    return this.http.post(`${this.url}/v1/accounts:lookup?key=${this.key}`, body);
+  }  
 
   public getToken():string|null{
     return localStorage.getItem('auth');
@@ -41,6 +46,10 @@ export class AuthService {
 
   public getUserId():string|null{
     return localStorage.getItem('userId');
+  }
+
+  public getEmail():string|null{
+    return localStorage.getItem('email');
   }
 
   public verifyLogged():boolean{
@@ -51,6 +60,7 @@ export class AuthService {
   public logout():void{
     localStorage.removeItem('auth');
     localStorage.removeItem('userId');
+    localStorage.removeItem('email');
     this.router.navigate(['login']);
   }
 
