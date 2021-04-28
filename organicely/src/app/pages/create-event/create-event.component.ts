@@ -3,6 +3,7 @@ import { EventService } from '../../shared/services/event.service';
 import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-create-event',
@@ -15,29 +16,26 @@ export class CreateEventComponent implements OnInit {
 	userSub: Subscription;
 	userEmail = "";
 	time = '';
-	
-	eventobj = {
-		eventDate: "Date",
-	}
-	dateobj = this.eventobj.eventDate; 
+	eventobj: any = { eventDate: "" };
+  datePipe = new DatePipe('es-bo');
+  dateobj = this.eventobj.eventDate;
 	
 	
-
   constructor(private router: Router, 
   						private eventService: EventService,
   						private authService: AuthService) { }
 
   
   ngOnInit(): void {
-  	this.authService.getLoggedInEmail({ idToken: localStorage.getItem("auth")}).subscribe(
+  	this.authService.getLoggedInEmail({ idToken: localStorage.getItem("auth") }).subscribe(
   		res => {
-  			this.userEmail = res.users.email
+  			this.userEmail = res.users[0].email
   		}
   	)
   }
 
   timeData(time:string){
-	this.time = time;
+	  this.time = time;
   }
 
   onDateChange(){
@@ -45,16 +43,8 @@ export class CreateEventComponent implements OnInit {
   }
 
   onCreateEvent(form: any) {
-	  
-  	// Crear un TIMESTAMP usando form.value.date y time
-  	// date: form.value.date localizarlo a dd-mm-yyyy
-  	// time: sale del ngx-timepicker, @Output: timeChanged
-  	// combinando los dos a un new Date() a un TIMESTAMP
-  	// se pone el TIMESTAMP en el campo date_time y listo.
-	console.log(this.eventobj.eventDate);
-	console.log(this.dateobj);
-  	/*this.eventService.createEvent({
-  		date_time: form.value.date + this.time,
+  	this.eventService.createEvent({
+  		date_time: this.datePipe.transform(this.eventobj.eventDate, 'dd/MM/yyyy') + " - " + this.time,
   		description: form.value.description,
   		event_id: form.value.event_id,
   		event_url: form.value.event_url,
@@ -71,7 +61,7 @@ export class CreateEventComponent implements OnInit {
   		err => {
   			console.log("Error...: ", err)
   		}
-  	);*/
+  	);
   }
 
   /*

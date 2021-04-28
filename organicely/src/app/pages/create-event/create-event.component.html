@@ -37,7 +37,8 @@
 
             <mat-form-field appearance="fill">
 				<mat-label>Fecha</mat-label>
-				<input matInput [matDatepicker]="picker" [(ngModel)]="eventobj.eventDate" value="{{ dateobj | date: 'dd/MM/yyyy'}}" name="date" #eventDate="ngModel" required>
+				<input matInput [matDatepicker]="picker" [(ngModel)]="eventobj.eventDate" name="date" #eventDate="ngModel" required>
+                {{ dateobj | date: 'dd/MM/yyyy'}}
 				<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
 				<mat-datepicker #picker></mat-datepicker>
 	        </mat-form-field>
