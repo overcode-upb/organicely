@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthService } from 'src/app/shared/services/auth.service';
+import { UsersService } from 'src/app/shared/services/users.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +12,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, 
+    private authService: AuthService,
+    private userService: UsersService) { }
+
+    userInfo:any=[];
+    userEmail:string;
+    userl = false;
+
+    nombre ='';
+    apellido = '';
+    bio='';
+    
+  ngOnInit(): void {
+    this.userInfo=[];
+
+    this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
+        res => {
+          Object.entries(res).map((p: any) => this.userInfo.push({id: p[0], ...p[1]}));
+          console.log(this.userInfo[0].apellido);
+          this.apellido = this.userInfo[0].apellido;
+          this.nombre = this.userInfo[0].nombre;
+          this.bio = this.userInfo[0].bio;
+        }
+    );
+        
+
+
+  }
+
+  checkSession(){
+    return this.authService.verifyLogged();
+  }
 
   events =  [
       {
@@ -36,7 +72,6 @@ export class ProfileComponent implements OnInit {
       },
     ]
 
-  ngOnInit(): void {
-  }
+  
 
 }

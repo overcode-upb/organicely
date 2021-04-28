@@ -27,7 +27,9 @@ export class CreateEventComponent implements OnInit {
 
   
   ngOnInit(): void {
-  	this.authService.getLoggedInEmail({ idToken: localStorage.getItem("auth") }).subscribe(
+
+  	this.authService.getLoggedInInfo({ idToken: localStorage.getItem("auth")}).subscribe(
+
   		res => {
   			this.userEmail = res.users[0].email
   		}
