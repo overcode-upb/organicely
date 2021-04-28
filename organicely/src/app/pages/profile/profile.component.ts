@@ -36,8 +36,6 @@ export class ProfileComponent implements OnInit {
           this.bio = this.userInfo[0].bio;
         }
     );
-        
-
 
   }
 
