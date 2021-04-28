@@ -1,54 +1,54 @@
 <my-navbar></my-navbar>
+<div class="body">
+  <div class="container">
+      <div class="text-center py-5">
+        <img src="../../../assets/amelia.png" alt class="ui-w-100 rounded-circle">
 
-<div class="container">
-    <div class="text-center py-5">
-      <img src="../../../assets/amelia.png" alt class="ui-w-100 rounded-circle">
+        <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
+          <h4  class="font-weight-bold my-4">{{nombre}} {{apellido}}</h4>
 
-      <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
-        <h4  class="font-weight-bold my-4">{{nombre}} {{apellido}}</h4>
-
-        <div class="text-muted mb-4">
-           {{bio}}
+          <div class="text-muted mb-4">
+            {{bio}}
+          </div>
         </div>
       </div>
-    </div>
-</div>
-
-<div class="eventos px-5 ">
-  <div class="space">
-    <h2> Eventos</h2>
-    <a routerLink="/pages/crevent" type="button" class="btn btn-dark"> + Nuevo Evento </a>
-    <button type="button" class="btn btn-dark mx-2"> + Ver más eventos </button>
   </div>
-  <div style="display: flex;">
-    <div *ngFor="let event of events">
-      <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
+
+  <div class="eventos px-5 ">
+    <div class="space">
+      <h2> Eventos</h2>
+      <a routerLink="/pages/crevent" type="button" class="btn btn-dark"> + Nuevo Evento </a>
+      <a type="button" class="btn btn-dark mx-2"> + Ver más eventos </a>
+    </div>
+    <div style="display: flex;">
+      <div *ngFor="let event of events">
+        <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
+        descripcion={{event.descripcion}} urlInfo={{event.urlInfo}} urlImage={{event.urlImage}}></app-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="px-5 py-5">
+    <div class="space">
+      <h2> Atajos</h2>
+    </div>
+    <div style="display: flex;">
+      <a routerLink="/pages/crevent" type="button" class="btn btn-dark"> + Nuevo Evento </a>
+      <a type="button" class="btn btn-dark mx-2"> + Ver más eventos </a>
+    </div>
+  </div>
+
+
+  <div class="px-5 py-5">
+    <div class="space">
+      <h2> Eventos pasados</h2>
+    </div>
+    <div style="display: flex;">
+      <div *ngFor="let event of pastevents">
+        <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
       descripcion={{event.descripcion}} urlInfo={{event.urlInfo}} urlImage={{event.urlImage}}></app-card>
+      </div>
     </div>
   </div>
 </div>
-
-<div class="px-5 py-5">
-  <div class="space">
-    <h2> Atajos</h2>
-  </div>
-  <div style="display: flex;">
-    <a routerLink="/pages/crevent" type="button" class="btn btn-dark"> + Nuevo Evento </a>
-    <button type="button" class="btn btn-dark mx-2"> + Ver más eventos </button>
-  </div>
-</div>
-
-
-<div class="px-5 py-5">
-  <div class="space">
-    <h2> Eventos pasados</h2>
-  </div>
-  <div style="display: flex;">
-    <div *ngFor="let event of pastevents">
-      <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
-    descripcion={{event.descripcion}} urlInfo={{event.urlInfo}} urlImage={{event.urlImage}}></app-card>
-    </div>
-  </div>
-</div>
-
 
