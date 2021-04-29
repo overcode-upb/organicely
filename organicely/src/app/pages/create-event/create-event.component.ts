@@ -61,7 +61,7 @@ export class CreateEventComponent implements OnInit {
   			this.router.navigate(['pages/home'])
   		},
   		err => {
-  			console.log("Error...: ", err)
+  			//console.log("Error...: ", err)
   		}
   	);
   }

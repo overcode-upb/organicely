@@ -25,17 +25,19 @@ export class ProfileComponent implements OnInit {
     bio='';
     
   ngOnInit(): void {
-    this.userInfo=[];
+    this.userl = this.checkSession();
+    if(this.userl) {
+      this.userInfo=[];
 
-    this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
-        res => {
-          Object.entries(res).map((p: any) => this.userInfo.push({id: p[0], ...p[1]}));
-          console.log(this.userInfo[0].apellido);
-          this.apellido = this.userInfo[0].apellido;
-          this.nombre = this.userInfo[0].nombre;
-          this.bio = this.userInfo[0].bio;
-        }
-    );
+      this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
+          res => {
+            Object.entries(res).map((p: any) => this.userInfo.push({id: p[0], ...p[1]}));
+            this.apellido = this.userInfo[0].apellido;
+            this.nombre = this.userInfo[0].nombre;
+            this.bio = this.userInfo[0].bio;
+          }
+      );
+    }
 
   }
 
