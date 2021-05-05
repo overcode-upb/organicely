@@ -61,9 +61,9 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  ngOnDestroy(): void {
+  /*ngOnDestroy(): void {
     this.userSub ? this.userSub.unsubscribe() : '';
-  }
+  }*/
 
   /*
 	email

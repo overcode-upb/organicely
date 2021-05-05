@@ -21,7 +21,7 @@ export class UploadService {
     if(event){
       filePath = `${this.basePath}/${email}/events/${eventId}${extension}`;
     } else {
-      filePath = `${this.basePath}/${email}/icon${extension}`;
+      filePath = `${this.basePath}/icons/${email}/icon${extension}`;
     }
 
     const storageRef = this.st.ref(filePath);
