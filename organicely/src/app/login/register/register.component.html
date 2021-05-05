@@ -1,7 +1,7 @@
 <div class="blue">
     <h1 class="text-center"> REGISTRATE A <strong> ORGANICELY </strong> </h1>
 
-    <mat-card class="example-card" style="width:1000px">
+    <mat-card class="example-card" style="width:1000px;">
         <mat-card-header style="padding-left: 180px">
             <mat-card-title>Ingresa tus datos</mat-card-title>
         </mat-card-header>
@@ -10,27 +10,88 @@
             <form #form="ngForm" style="display: flex; flex-direction: column;">
                 <mat-form-field>
                     <mat-label>Ingresa tu E-mail</mat-label>
-                    <input matInput type="text" name="email" ngModel #emailUI="ngModel" required>
+                    <input matInput 
+                    type="text" 
+                    name="email" 
+                    ngModel 
+                    [email]="true"
+                    #emailUI="ngModel" 
+                    required>
                 </mat-form-field>
+
+                <div *ngIf="emailUI.invalid && (emailUI.touched || emailUI.dirty)"
+                    class="alert alert-danger">
+                  <div *ngIf="emailUI?.errors?.required">
+                    Este campo es obligatorio
+                  </div>
+                  <div *ngIf="emailUI?.errors?.email">
+                    Ingrese una dirección de correo valida
+                  </div>
+                </div>
 
                 <mat-form-field>
                     <mat-label>Contraseña</mat-label>
-                    <input matInput type="password" name="password" ngModel #passwordUI="ngModel" required>
+                    <input matInput 
+                    type="password" 
+                    name="password" 
+                    ngModel 
+                    minlength="6"
+                    #passwordUI="ngModel" 
+                    required>
                 </mat-form-field>
+
+                <div *ngIf="passwordUI.invalid && (passwordUI.touched || passwordUI.dirty)"
+                        class="alert alert-danger">
+                    <div *ngIf="passwordUI?.errors?.required">
+                        Este campo es obligatorio
+                    </div>
+                    <div *ngIf="passwordUI.errors?.minlength">
+                        La contraseña debe tener al menos 6 caracteres
+                    </div>
+                </div>
 
                 <mat-form-field>
                     <mat-label>Escribe tu Nombre</mat-label>
-                    <input matInput type="text" name="nombre" ngModel #nombreUI="ngModel" required>
+                    <input matInput 
+                    type="text" 
+                    name="nombre" 
+                    ngModel 
+                    #nombreUI="ngModel" 
+                    required>
                 </mat-form-field>
+
+                <div *ngIf="nombreUI.invalid && (nombreUI.touched || nombreUI.dirty)"
+                        class="alert alert-danger">
+                    <div *ngIf="nombreUI?.errors?.required">
+                        Este campo es obligatorio
+                    </div>
+                </div>
 
                 <mat-form-field>
                     <mat-label>Escribe tu Apellido</mat-label>
-                    <input matInput type="text" name="apellido" ngModel #apellidoUI="ngModel" required>
+                    <input matInput 
+                    type="text" 
+                    name="apellido" 
+                    ngModel 
+                    #apellidoUI="ngModel" 
+                    required>
                 </mat-form-field>
+
+                <div *ngIf="apellidoUI.invalid && (apellidoUI.touched || apellidoUI.dirty)"
+                        class="alert alert-danger">
+                    <div *ngIf="apellidoUI?.errors?.required">
+                        Este campo es obligatorio
+                    </div>
+                </div>
 
                 <mat-form-field>
                     <mat-label>Bio</mat-label>
-                    <input matInput type="text" name="bio" ngModel #bioUI="ngModel" value="">
+                    <input matInput 
+                    type="text" 
+                    name="bio" 
+                    ngModel 
+                    #bioUI="ngModel" 
+                    value="">
                 </mat-form-field>
             </form>
         </mat-card-content>
@@ -38,7 +99,7 @@
         <button mat-raised-button (click)="openInput()">Suba su foto</button>
         <input id="fileInput" hidden type="file" (change)="selectFile($event)" name="file">
         <mat-card-actions style="text-align:center">
-            <button mat-button (click)="onRegister(form)">Registrarse</button>
+            <button mat-button [disabled]="form.invalid" (click)="onRegister(form)">Registrarse</button>
         </mat-card-actions>
     </mat-card>
 
