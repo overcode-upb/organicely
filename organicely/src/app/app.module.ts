@@ -10,6 +10,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {UploadService} from './shared/services/upload.service';
+import {EventService} from './shared/services/event.service';
+import {UsersService} from './shared/services/users.service';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {environment} from '../environments/environment';
 
 //import{MatDateFormats, MAT_DATE_FORMATS, NativeDateAdapter, DateAdapter} from '@angular/material';
 
@@ -53,12 +60,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   providers: [
     AuthService,
     //{provide: DateAdapter, useClass: AppDateAdapter},
-    //{provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS}
+    //{provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS},
+    UploadService,
+    EventService,
+    UsersService
   ],
   bootstrap: [AppComponent],
   exports: [

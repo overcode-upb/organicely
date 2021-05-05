@@ -1,11 +1,11 @@
 <div class="blue">
-    <h1 class="text-center"> REGISTRATE A <strong> ORGANICELY </strong> </h1>  
+    <h1 class="text-center"> REGISTRATE A <strong> ORGANICELY </strong> </h1>
 
     <mat-card class="example-card" style="width:1000px">
         <mat-card-header style="padding-left: 180px">
             <mat-card-title>Ingresa tus datos</mat-card-title>
         </mat-card-header>
-        
+
         <mat-card-content>
             <form #form="ngForm" style="display: flex; flex-direction: column;">
                 <mat-form-field>
@@ -29,17 +29,14 @@
                 </mat-form-field>
 
                 <mat-form-field>
-                    <mat-label>Imagen</mat-label>
-                    <input matInput type="text" name="imagen" ngModel #imagenUI="ngModel" required>
-                </mat-form-field>
-
-                <mat-form-field>
                     <mat-label>Bio</mat-label>
                     <input matInput type="text" name="bio" ngModel #bioUI="ngModel" value="">
                 </mat-form-field>
             </form>
         </mat-card-content>
 
+        <button mat-raised-button (click)="openInput()">Suba su foto</button>
+        <input id="fileInput" hidden type="file" (change)="selectFile($event)" name="file">
         <mat-card-actions style="text-align:center">
             <button mat-button (click)="onRegister(form)">Registrarse</button>
         </mat-card-actions>
