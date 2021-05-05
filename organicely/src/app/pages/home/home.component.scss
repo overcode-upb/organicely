@@ -1,3 +1,11 @@
+ 
+/*
+Desktop: 1200px // col-xl 
+Laptop: 1024px // col-lg
+Tablet: 768px // md
+Celular: 480px //ms 
+*/
+
 body {
 	font-family: 'Lato', sans-serif;
     background-color: #586DE0 !important;
@@ -22,11 +30,27 @@ body {
     color: #FFF;
     font-size: 4.5rem;
     font-family: 'Lato', sans-serif !important;
+    @media (max-width: 1024px) 
+    {
+    font-size: 45px;
+        }
+    @media (max-width: 768px) 
+    {
+    font-size: 45px;
+        }
+    @media (max-width: 480px) 
+    {
+    font-size: 35px;
+        }
 }
 
 .text {
     font-size: 1.1rem;
     font-family: 'Lato', sans-serif !important;
+    @media (max-width: 1024px) {
+    font-size: 20px;
+        
+    }
 }
 
 .banner-text {
@@ -36,6 +60,20 @@ body {
     width:  1000px;
     height: 450 px;
     background-color: rgba(255, 255, 255, .15);
+    @media (max-width: 1024px){
+    width:  800px;
+    height: 450px;    
+    } 
+    @media (max-width: 768px){
+    font-size: 20px;
+    width:  450px;
+    height: 350px; 
+    }
+    @media (max-width: 480px){
+        font-size: 20px;
+        width:  500px;
+        height: 350px; 
+        }
 }
 
 .blue {
@@ -45,6 +83,14 @@ body {
 .pink {
     background-color: #EBCADF;
     height: 100%;
+    @media (max-width: 1024px) {
+        height: 900px;
+        font-size: 15px;
+    }
+    @media (max-width: 768px){
+        height: 1000px;
+        font-size: 15px; 
+    }
 }
 
 .container{
@@ -58,6 +104,10 @@ body {
 .size-img {
     width:100%; 
     height: auto;
+    @media (max-width: 480px){
+        width: 400px; 
+        height: auto; 
+        }
 }
 
 section .glass {
