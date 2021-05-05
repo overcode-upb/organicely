@@ -19,4 +19,11 @@ export class UsersService {
   	);
   }
 
+  public getUserByEmail(email:any) : Observable<any>{
+	  //console.log(`${this.url}user.json?orderBy="email"&equalTo="${email}"&print=pretty`);
+    return this.http.get(`${this.url}user.json?orderBy="email"&equalTo="${email}"&print=pretty`);
+  }
+  
+
+
 }

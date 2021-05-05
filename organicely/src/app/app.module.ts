@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +17,10 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import {AngularFireStorageModule} from '@angular/fire/storage';
 import {environment} from '../environments/environment';
+import { registerLocaleData } from '@angular/common';
+import localeEs from '@angular/common/locales/es';
+registerLocaleData(localeEs);
+
 
 //import{MatDateFormats, MAT_DATE_FORMATS, NativeDateAdapter, DateAdapter} from '@angular/material';
 
@@ -67,6 +71,7 @@ import {environment} from '../environments/environment';
   ],
   providers: [
     AuthService,
+    { provide: LOCALE_ID, useValue: 'es-bo'},
     //{provide: DateAdapter, useClass: AppDateAdapter},
     //{provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS},
     UploadService,
