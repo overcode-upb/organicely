@@ -1,10 +1,20 @@
-body {
-	font-family: 'Lato', sans-serif;
+.mycontainer {
+    font-family: 'Lato', sans-serif;
     background-color: #586DE0 !important;
     font-weight: bold;
+    content-align: center;
+    width: 100% !important;
+    height: 100%;
+    padding-top: 100px;
 }
 
 .example-card{
-    background-color: #586DE0;
+    backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(125%);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    border-radius: 20px !important;
+    width:  1000px;
+    height: 450 px;
+    background-color: rgba(255, 255, 255, .15);
+    margin: 0 auto;
 
 }

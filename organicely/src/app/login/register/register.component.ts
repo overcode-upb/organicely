@@ -30,12 +30,12 @@ export class RegisterComponent implements OnInit {
   		returnSecureToken: true
   	}).subscribe(
   		res => {
-  			console.log('SignUp Response: ', res);
+  			//console.log('SignUp Response: ', res);
   			this.onCreate(form);
   			this.router.navigate(['../../pages/home']);
   		},
   		err => {
-  			console.log('SignUp Error: ', err);
+  			//console.log('SignUp Error: ', err);
   		}
   	)
   }
@@ -45,10 +45,10 @@ export class RegisterComponent implements OnInit {
       ...form.value
     }).subscribe(
       res => {
-        console.log('POST Response: ', res);
+        //console.log('POST Response: ', res);
       },
       err => {
-        console.log("SERVER ERROR: ", err);
+        //console.log("SERVER ERROR: ", err);
       }
     );
   }

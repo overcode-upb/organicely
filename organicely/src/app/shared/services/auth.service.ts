@@ -62,7 +62,6 @@ export class AuthService {
     localStorage.removeItem('userId');
     localStorage.removeItem('email');
     this.router.navigate(['pages/home']);
-    window.location.reload();
   }
 
 }
