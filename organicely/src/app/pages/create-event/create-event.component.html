@@ -80,12 +80,20 @@
                         </div>
                     </div>
                     
-                    <mat-label>Hora *</mat-label>
-                    
-                    <div class="ngx-material-timepicker-example__form-group">
-                        <input aria-label="default time"
-                            [ngxTimepicker]="defaultTime" [value]="'12:00 am'">
-                        <ngx-material-timepicker #defaultTime [defaultTime]="'12:00 am'" (timeSet)="timeData($event)" ></ngx-material-timepicker>
+                    <div class="form__group field">
+                        <div class="ngx-material-timepicker-example__form-group">
+                            <input aria-label="default time" matInput class="form__field"
+                                [ngxTimepicker]="defaultTime" [value]="'12:00 am'" name="hour" ngModel  #horaUI="ngModel" required>
+                            <ngx-material-timepicker #defaultTime [defaultTime]="'12:00 am'" (timeSet)="timeData($event)" ></ngx-material-timepicker>
+                        </div>
+
+                        <label for="hora" class="form__label">Hora *</label>
+                    </div>
+                    <div *ngIf="horaUI.invalid && (horaUI.touched || horaUI.dirty)"
+                        class="alert alert-danger my-2">
+                        <div *ngIf="horaUI?.errors?.required">
+                            Este campo es obligatorio
+                        </div>
                     </div>
 
                     <h3> Datos sobre la reunión en Zoom </h3>
