@@ -17,7 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
-
+import {MatGridListModule} from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -42,7 +42,8 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
     MatFormFieldModule,
     MatInputModule,
     NgxMaterialTimepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule
   ]
 })
 export class PagesModule { }

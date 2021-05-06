@@ -18,15 +18,16 @@
 
     <div class="eventos px-5 ">
       <div class="space">
-        <h2> Eventos</h2>
+        <h2> Mis Eventos</h2>
         <a routerLink="/pages/crevent" type="button" class="btn btn-dark"> + Nuevo Evento </a>
       </div>
-      <div style="display: flex;">
-        <div *ngFor="let event of events">
-          <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
-          descripcion={{event.descripcion}} urlInfo={{event.urlInfo}} urlImage={{event.urlImage}}></app-card>
+      
+      <mat-grid-list cols="3" rowHeight="500px">
+        <div *ngFor="let event of eventsByUser">
+          <mat-grid-tile><app-card nombre={{event.name}} horario={{event.date_time}}
+          descripcion={{event.description}} urlInfo={{event.event_url}} urlImage={{event.image_url}}></app-card></mat-grid-tile>
         </div>
-      </div>
+      </mat-grid-list>
     </div>
 
 
@@ -37,7 +38,7 @@
       <div style="display: flex;">
         <div *ngFor="let event of pastevents">
           <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
-        descripcion={{event.descripcion}} urlInfo={{event.urlInfo}} urlImage={{event.urlImage}}></app-card>
+          descripcion={{event.description}} urlInfo={{event.event_url}} urlImage={{event.image_url}}></app-card>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { EventService } from 'src/app/shared/services/event.service';
 import { UsersService } from 'src/app/shared/services/users.service';
 
 @Component({
@@ -14,11 +15,13 @@ export class ProfileComponent implements OnInit {
 
   constructor(private router: Router, 
     private authService: AuthService,
-    private userService: UsersService) { }
+    private userService: UsersService,
+    private eventService: EventService) { }
 
     userInfo:any=[];
     userEmail:string;
     userl = false;
+    eventsByUser:any=[];
 
     nombre ='';
     apellido = '';
@@ -37,8 +40,14 @@ export class ProfileComponent implements OnInit {
             this.bio = this.userInfo[0].bio;
           }
       );
-    }
 
+      this.eventService.getEventByEmail(localStorage.getItem('email')).subscribe(
+        res => {
+          Object.entries(res).map((p: any) => this.eventsByUser.push({id: p[0], ...p[1]}));
+        });
+      }   
+      console.log(this.eventsByUser);
+      
   }
 
   checkSession(){
