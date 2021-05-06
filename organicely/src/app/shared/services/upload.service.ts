@@ -9,19 +9,19 @@ import {Upload} from '../models/upload';
 })
 export class UploadService {
   private basePath = '/uploads'
-  private download: string[]
+  private download: string
 
   constructor(private st: AngularFireStorage,
               private db: AngularFireDatabase) { }
 
   uploadFileToStorage(upload: Upload, event: boolean, eventId?: string): string{
-    const email = localStorage.getItem('email');
+    let email = localStorage.getItem('email');
     let filePath;
     const extension:string  = '.' + upload.file.name.split('.')[1]
     if(event){
-      filePath = `${this.basePath}/${email}/events/${eventId}${extension}`;
+      filePath = `/events/${email}${eventId}${extension}`;
     } else {
-      filePath = `${this.basePath}/icons/${email}/icon${extension}`;
+      filePath = `/icons/${email}/icon${extension}`;
     }
 
     const storageRef = this.st.ref(filePath);
@@ -31,17 +31,18 @@ export class UploadService {
     uploadTask.snapshotChanges().pipe(
       finalize(() => {
         storageRef.getDownloadURL().subscribe(downloadURL => {
-          Object.entries(downloadURL).map((p: any) => this.download.push(p));
-          upload.url = downloadURL;
-          upload.name = upload.file.name;
-          this.saveFileData(upload);
-
+          return this.download = downloadURL;
         })
       })
     ).subscribe();
 
-    console.log(this.download[0])
-    return this.download[0];
+    if(event){
+      return 'hola'
+    } else {
+      // @ts-ignore
+      email = email.replace('@','%40')
+      return `https://firebasestorage.googleapis.com/v0/b/organicely.appspot.com/o/icons%2F${email}%2Ficon${extension}?alt=media`;
+    }
   }
 
   private saveFileData(upload: Upload): void {
