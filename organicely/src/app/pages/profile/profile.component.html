@@ -35,12 +35,12 @@
       <div class="space">
         <h2> Eventos pasados</h2>
       </div>
-      <div style="display: flex;">
+      <mat-grid-list cols="3" rowHeight="500px">
         <div *ngFor="let event of pastevents">
           <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
           descripcion={{event.description}} urlInfo={{event.event_url}} urlImage={{event.image_url}}></app-card>
         </div>
-      </div>
+      </mat-grid-list>
     </div>
   </div>
 </div>
