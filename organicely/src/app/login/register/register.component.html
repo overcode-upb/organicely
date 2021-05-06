@@ -96,8 +96,11 @@
             </form>
         </mat-card-content>
 
-        <button mat-raised-button (click)="openInput()">Suba su foto</button>
-        <input id="fileInput" hidden type="file" (change)="selectFile($event)" name="file">
+        <button mat-raised-button (click)="openInput()">Suba su foto *</button>
+        <p class="py-2"> <strong> Nota: </strong>Subir una imagen es obligatorio para poder registrarse. </p>
+        <input id="fileInput" hidden type="file" (change)="selectFile($event)" name="file" ngModel #fileIU="ngModel" required>
+
+
         <mat-card-actions style="text-align:center">
             <button mat-button [disabled]="form.invalid" (click)="onRegister(form)">Registrarse</button>
         </mat-card-actions>

@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit {
     nombre ='';
     apellido = '';
     bio='';
+    imageUrl='';
     
   ngOnInit(): void {
     this.userl = this.checkSession();
@@ -38,6 +39,7 @@ export class ProfileComponent implements OnInit {
             this.apellido = this.userInfo[0].apellido;
             this.nombre = this.userInfo[0].nombre;
             this.bio = this.userInfo[0].bio;
+            this.imageUrl = this.userInfo[0].imagen;
           }
       );
 
@@ -46,7 +48,7 @@ export class ProfileComponent implements OnInit {
           Object.entries(res).map((p: any) => this.eventsByUser.push({id: p[0], ...p[1]}));
         });
       }   
-      console.log(this.eventsByUser);
+      //console.log(this.eventsByUser);
       
   }
 
