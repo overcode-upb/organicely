@@ -13,13 +13,13 @@
 		</div>
 
 		<div class="navbar-nav ml-auto action-buttons">
-			<div *ngIf="!userl">
+			<div *ngIf="!checkSession()">
 				<div class="navbar-nav ml-auto action-buttons">
 					<a routerLink='/login' class="nav-link nav-item">Inicia Sesión</a>
 					<a routerLink='/login/register' class="btn btn-primary dropdown-toggle sign-up-btn">Registrate</a>
 				</div>
 			</div>
-			<div *ngIf="userl">
+			<div *ngIf="checkSession()">
 				<div class="navbar-nav ml-auto action-buttons">
 					<a routerLink='/pages/profile' class="nav-link nav-item">Perfil</a>
 					<button (click)="logOut()" class="btn btn-primary dropdown-toggle sign-up-btn">Logout</button>

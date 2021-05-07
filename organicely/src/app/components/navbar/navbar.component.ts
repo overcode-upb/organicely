@@ -14,11 +14,8 @@ export class NavbarComponent implements OnInit {
     private authService: AuthService) { }
 
     userEmail ="";
-    userl = false;
 
-  ngOnInit(): void {
-    this.userl = this.checkSession();
-  }
+  ngOnInit(): void { }
 
   checkSession(){
     return this.authService.verifyLogged();
@@ -26,7 +23,7 @@ export class NavbarComponent implements OnInit {
 
   logOut(){
     this.authService.logout();
-    this.userl = this.checkSession();
+    this.router.navigate(['/pages/home']);
   }
 
 }

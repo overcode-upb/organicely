@@ -18,19 +18,18 @@ export class ProfileComponent implements OnInit {
     private userService: UsersService,
     private eventService: EventService) { }
 
-    userInfo:any=[];
-    userEmail:string;
-    userl = false;
-    eventsByUser:any=[];
+    userInfo: any = [];
+    userEmail: string;
+    eventsByUser: any = [];
 
-    nombre ='';
+    nombre = '';
     apellido = '';
-    bio='';
+    bio = '';
     
   ngOnInit(): void {
-    this.userl = this.checkSession();
-    if(this.userl) {
-      this.userInfo=[];
+    
+    if(this.checkSession()) {
+      this.userInfo = [];
 
       this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
           res => {
