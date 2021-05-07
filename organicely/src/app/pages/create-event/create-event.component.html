@@ -83,11 +83,11 @@
                     <div class="form__group field">
                         <div class="ngx-material-timepicker-example__form-group">
                             <input aria-label="default time" matInput class="form__field"
-                                [ngxTimepicker]="defaultTime" [value]="'12:00 am'" name="hour" ngModel  #horaUI="ngModel" required>
-                            <ngx-material-timepicker #defaultTime [defaultTime]="'12:00 am'" (timeSet)="timeData($event)" ></ngx-material-timepicker>
+                                [ngxTimepicker]="defaultTime" [format]="24" [value]="'12:00'" name="hour" ngModel #horaUI="ngModel" required readonly>
+                            <ngx-material-timepicker #defaultTime [defaultTime]="'12:00'" (timeSet)="timeData($event)" ></ngx-material-timepicker>
                         </div>
 
-                        <label for="hora" class="form__label">Hora *</label>
+                        <label for="hour" class="form__label">Hora *</label>
                     </div>
                     <div *ngIf="horaUI.invalid && (horaUI.touched || horaUI.dirty)"
                         class="alert alert-danger my-2">

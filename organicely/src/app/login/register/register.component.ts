@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
   			this.router.navigate(['../../pages/home']);
   		},
   		err => {
+        
   			//console.log('SignUp Error: ', err);
   		}
   	)

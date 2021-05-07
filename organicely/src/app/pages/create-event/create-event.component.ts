@@ -15,45 +15,36 @@ export class CreateEventComponent implements OnInit {
 
 	eventSub: Subscription;
 	userSub: Subscription;
-	hour:string;
+	hour: string;
 	userEmail = "";
 	userl = false;
 	time = '';
 	eventobj: any = { eventDate: "" };
-  	datePipe = new DatePipe('es-bo');
-  	dateobj = this.eventobj.eventDate;
+	datePipe = new DatePipe('es-bo');
+	dateobj = this.eventobj.eventDate;
 	
 	
-  	constructor(private router: Router, 
+	constructor(private router: Router, 
   						private eventService: EventService,
-  						private authService: AuthService) { 
-
-						}
+  						private authService: AuthService) {}
 
   
   ngOnInit(): void {
-	this.userl = this.checkSession();
-	if(this.userl) {
-		this.authService.getLoggedInInfo({ idToken: localStorage.getItem("auth")}).subscribe(
-
-			res => {
-				this.userEmail = res.users[0].email
-			}
-		)
-	}
+	  this.userl = this.checkSession();
+  	if(this.userl) {
+  		this.authService.getLoggedInInfo({ idToken: localStorage.getItem("auth") }).subscribe(
+  			res => {
+  				this.userEmail = res.users[0].email
+  		});
+  	}
   }
 
-  timeData(time:string){
+  timeData(time: string){
 	  this.time = time;
   }
 
   checkSession(){
     return this.authService.verifyLogged();
-  }
-
-
-  onDateChange(){
-
   }
 
   onCreateEvent(form: any) {
@@ -74,8 +65,7 @@ export class CreateEventComponent implements OnInit {
   		},
   		err => {
   			//console.log("Error...: ", err)
-  		}
-  	);
+  		});
   }
 
   /*
