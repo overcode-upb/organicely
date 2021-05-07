@@ -5,7 +5,7 @@ on:
       main
     tags:
       - 1.*
-  schedules:
+  schedule:
     - cron: '0 4 * * *'
 
 jobs:
