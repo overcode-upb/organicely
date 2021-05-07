@@ -13,7 +13,7 @@ const routes: Routes = [
     children: [
       {path: '', redirectTo:'home', pathMatch:'full'},
       {path: 'home', component: HomeComponent},
-      {path: 'levent', component: ListEventsComponent},
+      {path: 'levent/:id', component: ListEventsComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'crevent', component: CreateEventComponent}
     ]

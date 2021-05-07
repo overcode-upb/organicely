@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { LoadingSpinnerComponent } from '../components/loading-spinner/loading-spinner.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     CreateEventComponent,
     NavbarComponent,
     CardComponent,
+    LoadingSpinnerComponent,
     HomeComponent,
     CreateEventComponent,
     ListEventsComponent,

@@ -1,10 +1,10 @@
 <my-navbar></my-navbar>
 
-<div *ngIf="userl">
+<div *ngIf="checkSession()">
   <div class="body">
     <div class="container">
         <div class="text-center py-5">
-          <img src="../../../assets/amelia.png" alt class="ui-w-100 rounded-circle">
+          <img src="{{imageUrl}}" alt class="ui-w-100 rounded-circle">
 
           <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
             <h4  class="font-weight-bold my-4">{{nombre}} {{apellido}}</h4>
@@ -21,31 +21,40 @@
         <h2> Mis Eventos</h2>
         <a routerLink="/pages/crevent" type="button" class="btn btn-dark"> + Nuevo Evento </a>
       </div>
-      
-      <mat-grid-list cols="3" rowHeight="500px">
-        <div *ngFor="let event of eventsByUser">
-          <mat-grid-tile><app-card nombre={{event.name}} horario={{event.date_time}}
-          descripcion={{event.description}} urlInfo={{event.event_url}} urlImage={{event.image_url}}></app-card></mat-grid-tile>
-        </div>
-      </mat-grid-list>
-    </div>
 
+      <div *ngIf="showSpinner">
+        <app-loading-spinner> </app-loading-spinner>
+      </div>
+      <div *ngIf="!showSpinner">
+        <div *ngIf="eventsByUser.length > 0">
+          <mat-grid-list cols="3" rowHeight="500px">
+            <div *ngFor="let event of eventsByUser">
+              <mat-grid-tile><app-card nombre={{event.name}} horario={{event.date_time}}
+              descripcion={{event.description}} urlInfo={{event.event_url}} urlImage={{event.image_url}} masInfoUrl={{event.id}}></app-card></mat-grid-tile>
+            </div>
+          </mat-grid-list>
+        </div>
+        <div *ngIf="eventsByUser.length == 0">
+          <p> No tienes eventos creados. </p>
+        </div>
+      </div>
+    </div>
 
     <div class="px-5 py-5">
       <div class="space">
         <h2> Eventos pasados</h2>
       </div>
-      <!-- <mat-grid-list cols="3" rowHeight="500px">
+      <!--<mat-grid-list cols="3" rowHeight="500px">
         <div *ngFor="let event of pastevents">
           <app-card style="flex: 1 1 auto;" nombre={{event.nombre}} horario={{event.horario}}
           descripcion={{event.description}} urlInfo={{event.event_url}} urlImage={{event.image_url}}></app-card>
         </div>
-      </mat-grid-list> -->
+      </mat-grid-list>-->
     </div>
   </div>
 </div>
 
-<div *ngIf="!userl">
+<div *ngIf="!checkSession()">
   <div class="body">
     <div class="container">
         <div class="text-center py-5">

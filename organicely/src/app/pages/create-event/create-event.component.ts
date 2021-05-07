@@ -17,7 +17,6 @@ export class CreateEventComponent implements OnInit {
 	userSub: Subscription;
 	hour: string;
 	userEmail = "";
-	userl = false;
 	time = '';
 	eventobj: any = { eventDate: "" };
 	datePipe = new DatePipe('es-bo');
@@ -30,8 +29,7 @@ export class CreateEventComponent implements OnInit {
 
   
   ngOnInit(): void {
-	  this.userl = this.checkSession();
-  	if(this.userl) {
+  	if(this.checkSession()) {
   		this.authService.getLoggedInInfo({ idToken: localStorage.getItem("auth") }).subscribe(
   			res => {
   				this.userEmail = res.users[0].email

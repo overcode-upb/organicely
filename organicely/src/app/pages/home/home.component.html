@@ -1,33 +1,30 @@
 <my-navbar></my-navbar>
 
-<div class="blue">
-    <div class="card card-image" style="background-image: url(../../../assets/homebanner.png)"  alt="image">
+<div *ngIf="!checkSession()" class="blue">
+    <div class="card card-image" style="background-image: url(../../../assets/home.png)"  alt="image">
         <div class="text-white text-center rgba-stylish-strong banner">
-        <div class="py-5 banner-text">
-            <h1 class="card-title h2 my-4 py-2 title">ORGANICELY.</h1>
-            <h5 style="color: white;">Crea relaciones significativas con eventos y reuniones únicos. <br> <br> Organiza de manera lovely. <br> <br> Organiza nicely. <br><br></h5>
-            <div *ngIf="!userl">
-                <button routerLink='/login' class="mx-2 btn-banner"> Iniciar Sesión </button>
-                <button routerLink='/login/register' class="btn-banner"> Registrarse </button>
+            <div class="py-5 banner-text">
+                <h1 class="card-title h2 my-4 py-2 title">ORGANICELY.</h1>
+                <h5 style="color: white;">Crea relaciones significativas con eventos y reuniones únicos. <br> <br> Organiza de manera lovely. <br> <br> Organiza nicely. <br><br></h5>
+                <div>
+                    <button routerLink='/login' class="mx-2 btn-banner"> Iniciar Sesión </button>
+                    <button routerLink='/login/register' class="btn-banner"> Registrarse </button>
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
 
-<!--<div class="blue2">
-    <div class="card card-image" style="background-image: url(../../../assets/Banner2.jpg)"  alt="image">
+<div *ngIf="checkSession()" class="blue2">
+    <div class="card card-image" style="background-image: url(../../../assets/welcome.jpg)" alt="image">
         <div class="text-white text-center rgba-stylish-strong banner">
-        <div class="py-5 banner-text">
-            <h1 class="card-title h2 my-4 py-2 title"> BIENVENIDO A ORGANICELY.</h1>
-            <h5 style="color: white;">Nos alegra tenerte aquí<br> <br> Organiza de manera lovely. <br> <br> Organiza nicely. <br><br></h5>
-            
-
-        </div>
+            <div class="py-5 banner-text">
+                <h1 class="card-title h2 my-4 py-2 title"> BIENVENIDO A ORGANICELY.</h1>
+                <h5 style="color: white;">Nos alegra tenerte aquí<br> <br> Organiza de manera lovely. <br> <br> Organiza nicely. <br><br></h5>
+            </div>
         </div>
     </div>
-</div>-->
-
+</div>
 
 <div class="pink ">
     <div class="py-5 px-5">
@@ -37,17 +34,14 @@
     <div class="container">
         <h3 style="color:white">A un sólo click puedes crear tus<br> propios eventos.<br> Nosotros nos encargamos de la gestión</h3>
         <img src="../../../assets/400.png" alt="image">
-       
-    
-        
-        
     </div>
+    
     <div class="row" style="background-color: #586de0;">
-    <h1 style="align-content: center !important; color: #ffffff;">Nuestros servicios</h1>
+        <h1 style="align-content: center !important; color: #ffffff;">Nuestros servicios</h1>
     </div>
     
     <div class="row2" style="background-color: #586de0;">
-         <div class="column2">
+        <div class="column2">
             <img src="../../../assets/wifi.png" alt="image">
             <h3 style="color: #2C3B90;"><b>Reuniones Virtuales</b> </h3><br>
             <p style="color: white;"> Puedes tener todas las reuniones que desees <br> nosotros nos encargamos de invitarlos</p>
@@ -67,14 +61,12 @@
     <div class="pink" >
         <div class="card card-image" style="background-color: #EBCADF;"alt="image">
             <div class="text-white text-center rgba-stylish-strong banner">
-            <div class="py-5 banner-text">
-                <h3 class="card-title h2 my-4 py-2 title">¡Integra con tus favoritos!</h3>
-            <div class="column size-img"><img src="../../../assets/transpoti.png" alt="image"></div>
-            <h5 style="color:white;"><a href="">Saber más</a></h5>
-     
+                <div class="py-5 banner-text">
+                    <h3 class="card-title h2 my-4 py-2 title">¡Integra con tus favoritos!</h3>
+                    <div class="column size-img"><img src="../../../assets/transpoti.png" alt="image"></div>
+                    <h5 style="color:white;"><a href="">Saber más</a></h5>
+                </div>
             </div>
-            </div>
-          
         </div>
     </div> 
 
