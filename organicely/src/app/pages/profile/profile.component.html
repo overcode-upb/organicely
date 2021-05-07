@@ -30,7 +30,7 @@
           <mat-grid-list cols="3" rowHeight="500px">
             <div *ngFor="let event of eventsByUser">
               <mat-grid-tile><app-card nombre={{event.name}} horario={{event.date_time}}
-              descripcion={{event.description}} urlInfo={{event.event_url}} urlImage={{event.image_url}}></app-card></mat-grid-tile>
+              descripcion={{event.description}} urlInfo={{event.event_url}} urlImage={{event.image_url}} masInfoUrl={{event.id}}></app-card></mat-grid-tile>
             </div>
           </mat-grid-list>
         </div>

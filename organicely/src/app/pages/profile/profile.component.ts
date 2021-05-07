@@ -51,7 +51,7 @@ export class ProfileComponent implements OnInit {
           Object.entries(res).map((p: any) => this.eventsByUser.push({id: p[0], ...p[1]}));
         });
       }   
-      //console.log(this.eventsByUser);
+      console.log(this.eventsByUser);
       
   }
 
