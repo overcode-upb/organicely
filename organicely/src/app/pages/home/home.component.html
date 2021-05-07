@@ -6,30 +6,66 @@
         <div class="py-5 banner-text">
             <h1 class="card-title h2 my-4 py-2 title">ORGANICELY.</h1>
             <h5 style="color: white;">Crea relaciones significativas con eventos y reuniones únicos. <br> <br> Organiza de manera lovely. <br> <br> Organiza nicely. <br><br></h5>
-            <button routerLink='/login' class="mx-2 btn-banner"> Iniciar Sesión </button>
-            <button routerLink='/login/register' class="btn-banner"> Registrarse </button>
-
+            <div *ngIf="!userl">
+                <button routerLink='/login' class="mx-2 btn-banner"> Iniciar Sesión </button>
+                <button routerLink='/login/register' class="btn-banner"> Registrarse </button>
+            </div>
         </div>
         </div>
     </div>
 </div>
 
+<!--<div class="blue2">
+    <div class="card card-image" style="background-image: url(../../../assets/Banner2.jpg)"  alt="image">
+        <div class="text-white text-center rgba-stylish-strong banner">
+        <div class="py-5 banner-text">
+            <h1 class="card-title h2 my-4 py-2 title"> BIENVENIDO A ORGANICELY.</h1>
+            <h5 style="color: white;">Nos alegra tenerte aquí<br> <br> Organiza de manera lovely. <br> <br> Organiza nicely. <br><br></h5>
+            
+
+        </div>
+        </div>
+    </div>
+</div>-->
+
+
 <div class="pink ">
     <div class="py-5 px-5">
-        <h1 class="card-title h2 my-4 py-2 title" style="padding-left:60px;">CREA TUS PROPIOS <br><br>EVENTOS</h1>
+        <h1 class="card-title h2 my-4 py-2 title" style="padding-left: 45px;">CREA TUS PROPIOS<br>EVENTOS</h1>
     </div>
 
     <div class="container">
         <h3 style="color:white">A un sólo click puedes crear tus<br> propios eventos.<br> Nosotros nos encargamos de la gestión</h3>
+        <img src="../../../assets/400.png" alt="image">
        
-        <div class="column size-img" style="padding-left: 200px;"><img src="../../../assets/400.png" alt="image"></div>
+    
         
         
     </div>
-
+    <div class="row" style="background-color: #586de0;">
+    <h1 style="align-content: center !important; color: #ffffff;">Nuestros servicios</h1>
+    </div>
     
-    <div class="blue" >
-        <div class="card card-image"style="background-color: #586DE0;" alt="image">
+    <div class="row2" style="background-color: #586de0;">
+         <div class="column2">
+            <img src="../../../assets/wifi.png" alt="image">
+            <h3 style="color: #2C3B90;"><b>Reuniones Virtuales</b> </h3><br>
+            <p style="color: white;"> Puedes tener todas las reuniones que desees <br> nosotros nos encargamos de invitarlos</p>
+        </div>
+        <div class="column2">
+            <img src="../../../assets/time.png" alt="image">
+            <h3 style="color: #2C3B90;"> <b> Ahorra más tiempo</b></h3><br>
+            <p style="color: white;"> Queremos que ahorres más tiempo<br> al tener todos tus eventos en un lugar</p>
+        </div>
+        <div class="column2">
+            <img src="../../../assets/money.png" alt="image">
+            <h3 style="color: #2C3B90;"><b>Los planes más accesibles</b></h3><br>
+            <p style="color: white;">Planes adecuados solo para tí<br>¡Organiza Nicely!</p>
+        </div>
+      </div>
+    
+    <div class="pink" >
+        <div class="card card-image" style="background-color: #EBCADF;"alt="image">
             <div class="text-white text-center rgba-stylish-strong banner">
             <div class="py-5 banner-text">
                 <h3 class="card-title h2 my-4 py-2 title">¡Integra con tus favoritos!</h3>
@@ -42,12 +78,22 @@
         </div>
     </div> 
 
-    <div id="top">
-        <div class="card card-image">
-            <div class="column size-img"><img src="../../../assets/CON3.png" width=100% height="800px" alt="image"></div>
-            
+    <div class="row3" style="padding-top: 200px;">
+        <div class="column3">
+            <img src="../../../assets/logo.png" alt="image">
         </div>
-    </div>
+        <div class="column3">
+            <img src="../../../assets/foco.png" alt="image">
+            <h3 style="color: #2C3B90;"><b>Sobre Nosotros</b> </h3><br>
+            <p style="color: white;"> Somos un software dedicado<br> a generar los eventos que necesites <br> sin tener que preocuparte por la organización</p>
+        </div>
+        <div class="column3">
+            <img src="../../../assets/map3.png" alt="image">
+            <h3 style="color:#2C3B90;"><b>Contáctanos</b></h3><br>
+            <p style="color: white;"> Achocalla Km4. <br> Universidad Privada Boliviana, La Paz</p>
+        </div>
+      </div>
+    
     
     <footer style="background-color: #2C3B90; text-align: center;">
         <p style="color: white;">Copyright Ⓒ 2021 OVERCODE. All rights deserved</p>
