@@ -29,7 +29,7 @@ jobs:
         run: ls -a
 
       - name: Entering Organicely path
-        run: cd organicely
+        run: cd ./organicely
 
       - name: Verfying new path
         run: ls -a
