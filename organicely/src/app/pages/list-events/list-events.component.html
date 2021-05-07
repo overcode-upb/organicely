@@ -1,1 +1,38 @@
-<app-card></app-card>
+<my-navbar></my-navbar>
+<div *ngIf="showSpinner">
+  <app-loading-spinner> </app-loading-spinner>
+</div>
+
+<div *ngIf="!showSpinner" class="pb-5">
+  <div
+      class="p-5 text-center bg-image"
+      style="
+        background-image: url('{{image_url}}');
+        height: 500px;
+      "
+    >
+      <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);position: absolute; top: 50%;">
+        <div class="d-flex justify-content-center align-items-center h-300">
+          <div class="text-white">
+            <h1 class="mb-3 px-3">{{name}}</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="eventos px-5 py-5">
+      <div class="space">
+        <h2> Datos sobre este evento </h2>
+      </div>
+  </div>
+
+  <div class="px-5">
+    <p> <strong> Hora y fecha: </strong> {{datetime}} </p>
+    <p> <strong> Descripcion: </strong> {{description}} </p>
+
+    <h3> Ingresa a este evento! (Datos para zoom) </h3>
+    <p> <strong> Event URL: </strong> {{event_url}} </p>
+    <p> <strong> Event ID: </strong> {{event_id}} </p>
+    <p> <strong> Password: </strong> {{password}} </p>
+  </div>
+</div>
