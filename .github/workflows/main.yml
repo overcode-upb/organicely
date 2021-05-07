@@ -25,9 +25,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Verfying path
+        run: ls -a
+
       - name: Entering Organicely path
         run: cd organicely
-        
+
+      - name: Verfying new path
+        run: ls -a
+
       - name: Installing dependencies
         run: npm install
 
