@@ -1,0 +1,33 @@
+name: Build Organicely Angular Project
+on:
+  push:
+    branches:
+      main
+    tags:
+      - 1.*
+  schedules:
+    - cron: '0 4 * * *'
+
+jobs:
+  build:
+    name: Install npm and build
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 12.18.0
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setting-up Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+
+
+      - name: Installing dependencies
+        run: npm install
+
+      - name: Building...
+        run: npm run build
