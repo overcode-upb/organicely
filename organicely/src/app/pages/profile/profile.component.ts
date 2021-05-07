@@ -23,6 +23,8 @@ export class ProfileComponent implements OnInit {
     userl = false;
     eventsByUser:any=[];
 
+    showSpinner:boolean = true;
+
     nombre ='';
     apellido = '';
     bio='';
@@ -35,6 +37,7 @@ export class ProfileComponent implements OnInit {
 
       this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
           res => {
+            this.showSpinner = false;
             Object.entries(res).map((p: any) => this.userInfo.push({id: p[0], ...p[1]}));
             this.apellido = this.userInfo[0].apellido;
             this.nombre = this.userInfo[0].nombre;
