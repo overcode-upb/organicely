@@ -6,9 +6,10 @@
         <div class="py-5 banner-text">
             <h1 class="card-title h2 my-4 py-2 title">ORGANICELY.</h1>
             <h5 style="color: white;">Crea relaciones significativas con eventos y reuniones únicos. <br> <br> Organiza de manera lovely. <br> <br> Organiza nicely. <br><br></h5>
-            <button routerLink='/login' class="mx-2 btn-banner"> Iniciar Sesión </button>
-            <button routerLink='/login/register' class="btn-banner"> Registrarse </button>
-
+            <div *ngIf="!userl">
+                <button routerLink='/login' class="mx-2 btn-banner"> Iniciar Sesión </button>
+                <button routerLink='/login/register' class="btn-banner"> Registrarse </button>
+            </div>
         </div>
         </div>
     </div>

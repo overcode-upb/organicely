@@ -1,62 +1,143 @@
 <my-navbar></my-navbar>
-<div class="mycontainer">
-    <mat-card class="example-card" style="width:900px;">
-        <mat-card-header style="padding-left: 180px">
-            <mat-card-title>Nuevo Evento</mat-card-title>
-        </mat-card-header>
+<div *ngIf="userl">
+    <div class="blue">
+        <h1 class="text-center"> Crea un <strong> evento </strong> </h1>
+        
+        <mat-card class="example-card" style="width:900px;">
+            <mat-card-header style="padding-left: 180px">
+            </mat-card-header>
 
-        <mat-card-content>
-            <form #form="ngForm" style="display: flex; flex-direction: column;">
-                <mat-form-field>
-                    <mat-label>Nombre del Evento:</mat-label>
-                    <input matInput type="text" name="name" ngModel #nameUI="ngModel" required>
-                </mat-form-field>
+            <mat-card-content>
+                <form #form="ngForm" style="display: flex; flex-direction: column;">
+                    <mat-form-field>
+                        <mat-label>Nombre del Evento:</mat-label>
+                        <input matInput 
+                        type="text" 
+                        name="name" 
+                        ngModel 
+                        #nameUI="ngModel" 
+                        required>
+                    </mat-form-field>
 
-                <mat-form-field>
-                    <mat-label>Descripcion del Evento:</mat-label>
-                    <input matInput type="text" name="description" ngModel #descriptionUI="ngModel" required>
-                </mat-form-field>
+                    <div *ngIf="nameUI.invalid && (nameUI.touched || nameUI.dirty)"
+                        class="alert alert-danger">
+                        <div *ngIf="nameUI?.errors?.required">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
 
-                <mat-form-field>
-                    <mat-label>Tipo de Reunión:</mat-label>
-                    <input matInput type="text" name="platform" value="zoom" ngModel #platformUI="ngModel" checked required>
-                </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Descripcion del Evento:</mat-label>
+                        <input matInput 
+                        type="text" 
+                        name="description" 
+                        ngModel 
+                        #descriptionUI="ngModel" 
+                        required>
+                    </mat-form-field>
 
-                <mat-form-field>
-                    <mat-label>URL del evento:</mat-label>
-                    <input matInput type="text" name="event_url" ngModel #event_urlUI="ngModel" required>
-                </mat-form-field>
+                    <div *ngIf="descriptionUI.invalid && (descriptionUI.touched || descriptionUI.dirty)"
+                        class="alert alert-danger">
+                        <div *ngIf="descriptionUI?.errors?.required">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
 
-                <mat-form-field>
-                    <mat-label>ID del evento:</mat-label>
-                    <input matInput type="text" name="event_id" ngModel #event_idUI="ngModel">
-                </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Tipo de Reunión:</mat-label>
+                        <input matInput 
+                        type="text" 
+                        name="platform" 
+                        value="zoom" 
+                        ngModel 
+                        #platformUI="ngModel" 
+                        checked required>
+                    </mat-form-field>
 
-                <mat-form-field>
-                    <mat-label>Contraseña:</mat-label>
-                    <input matInput type="password" name="password" ngModel #passwordUI="ngModel">
-                </mat-form-field>
+                    <div *ngIf="platformUI.invalid && (platformUI.touched || platformUI.dirty)"
+                        class="alert alert-danger">
+                        <div *ngIf="platformUI?.errors?.required">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>Fecha</mat-label>
-                    <input matInput [matDatepicker]="picker" [(ngModel)]="eventobj.eventDate" name="date" #eventDate="ngModel" required>
-                    {{ dateobj | date: 'dd/MM/yyyy'}}
-                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Fecha</mat-label>
+                        <input matInput 
+                        [matDatepicker]="picker" 
+                        [(ngModel)]="eventobj.eventDate" 
+                        name="date" 
+                        #eventDateUI="ngModel" required>
+                        {{ dateobj | date: 'dd/MM/yyyy'}}
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
 
-                <mat-label>Hora</mat-label>
-                
-                <div class="ngx-material-timepicker-example__form-group">
-                    <input aria-label="default time"
-                        [ngxTimepicker]="defaultTime">
-                    <ngx-material-timepicker #defaultTime [defaultTime]="'11:11 pm'" (timeSet)="timeData($event)"></ngx-material-timepicker>
-                </div>
-            </form>
-        </mat-card-content>
+                    <div *ngIf="eventDateUI.invalid && (eventDateUI.touched || eventDateUI.dirty)"
+                        class="alert alert-danger">
+                        <div *ngIf="eventDateUI?.errors?.required">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+                    
+                    <div class="form__group field">
+                        <div class="ngx-material-timepicker-example__form-group">
+                            <input aria-label="default time" matInput class="form__field"
+                                [ngxTimepicker]="defaultTime" [format]="24" [value]="'12:00'" name="hour" ngModel #horaUI="ngModel" required readonly>
+                            <ngx-material-timepicker #defaultTime [defaultTime]="'12:00'" (timeSet)="timeData($event)" ></ngx-material-timepicker>
+                        </div>
 
-        <mat-card-actions style="text-align:center">
-            <button mat-button (click)="onCreateEvent(form)">Crear Evento</button>
-        </mat-card-actions>
-    </mat-card>
+                        <label for="hour" class="form__label">Hora *</label>
+                    </div>
+                    <div *ngIf="horaUI.invalid && (horaUI.touched || horaUI.dirty)"
+                        class="alert alert-danger my-2">
+                        <div *ngIf="horaUI?.errors?.required">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <h3> Datos sobre la reunión en Zoom </h3>
+
+                    <mat-form-field>
+                        <mat-label>URL del evento:</mat-label>
+                        <input matInput 
+                        type="text" 
+                        name="event_url" 
+                        ngModel 
+                        #event_urlUI="ngModel" 
+                        required>
+                    </mat-form-field>
+
+                    <div *ngIf="event_urlUI.invalid && (event_urlUI.touched || event_urlUI.dirty)"
+                        class="alert alert-danger">
+                        <div *ngIf="event_urlUI?.errors?.required">
+                            Este campo es obligatorio
+                        </div>
+                    </div>
+
+                    <mat-form-field>
+                        <mat-label>ID del evento:</mat-label>
+                        <input matInput type="text" name="event_id" ngModel #event_idUI="ngModel">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Contraseña del evento: </mat-label>
+                        <input matInput type="password" name="password" ngModel #passwordUI="ngModel">
+                    </mat-form-field>
+
+                   
+                </form>
+            </mat-card-content>
+
+            <mat-card-actions style="text-align:center">
+                <button mat-button [disabled]="form.invalid" (click)="onCreateEvent(form)">Crear Evento</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+
+<div *ngIf="!userl">
+    <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto py-4">
+        <h4  class="font-weight-bold my-4">Porfavor inicia sesión o registrate para poder crear eventos</h4>
+    </div>
 </div>

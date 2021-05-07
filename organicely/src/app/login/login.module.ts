@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import {UploadService} from '../shared/services/upload.service';
 
 
 @NgModule({
@@ -25,6 +26,8 @@ import { MatInputModule } from '@angular/material/input';
   declarations: [
     LoginComponent,
     RegisterComponent
+  ],
+  providers:[
   ]
 })
 export class LoginModule { }

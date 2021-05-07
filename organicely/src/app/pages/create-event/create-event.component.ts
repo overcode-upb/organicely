@@ -4,6 +4,7 @@ import { AuthService } from '../../shared/services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DatePipe } from '@angular/common';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-create-event',
@@ -14,34 +15,36 @@ export class CreateEventComponent implements OnInit {
 
 	eventSub: Subscription;
 	userSub: Subscription;
+	hour: string;
 	userEmail = "";
+	userl = false;
 	time = '';
 	eventobj: any = { eventDate: "" };
-  datePipe = new DatePipe('es-bo');
-  dateobj = this.eventobj.eventDate;
+	datePipe = new DatePipe('es-bo');
+	dateobj = this.eventobj.eventDate;
 	
 	
-  constructor(private router: Router, 
+	constructor(private router: Router, 
   						private eventService: EventService,
-  						private authService: AuthService) { }
+  						private authService: AuthService) {}
 
   
   ngOnInit(): void {
-
-  	this.authService.getLoggedInInfo({ idToken: localStorage.getItem("auth")}).subscribe(
-
-  		res => {
-  			this.userEmail = res.users[0].email
-  		}
-  	)
+	  this.userl = this.checkSession();
+  	if(this.userl) {
+  		this.authService.getLoggedInInfo({ idToken: localStorage.getItem("auth") }).subscribe(
+  			res => {
+  				this.userEmail = res.users[0].email
+  		});
+  	}
   }
 
-  timeData(time:string){
+  timeData(time: string){
 	  this.time = time;
   }
 
-  onDateChange(){
-
+  checkSession(){
+    return this.authService.verifyLogged();
   }
 
   onCreateEvent(form: any) {
@@ -62,8 +65,7 @@ export class CreateEventComponent implements OnInit {
   		},
   		err => {
   			//console.log("Error...: ", err)
-  		}
-  	);
+  		});
   }
 
   /*

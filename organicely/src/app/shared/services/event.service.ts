@@ -30,4 +30,9 @@ export class EventService {
   public deleteEvent(id: any): Observable<any>{
     return this.http.delete(`${this.baseUrl}/event/${id}.json`)
   }
+
+  public getEventByEmail(email:any) : Observable<any>{
+	  //console.log(`${this.baseUrl}event.json?orderBy="owner_email"&equalTo="${email}"&print=pretty`);
+    return this.http.get(`${this.baseUrl}event.json?orderBy="owner_email"&equalTo="${email}"&print=pretty`);
+  }
 }
