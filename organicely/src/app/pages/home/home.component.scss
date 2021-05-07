@@ -107,19 +107,45 @@ body {
   width: 33.33%;
   text-align: center;
   @media screen and (max-width: 768px) {
-    .column {
+    .column2 {
       width: 100%;
     }
   }
   @media screen and (max-width: 600px) {
-    .column {
+    .column2 {
       width: 100%;
     }
 
   }
+  
 }
 
 .row2:after{
+    content: "";
+  display: table;
+  clear: both;
+}
+.column3{
+    float: left;
+  width: 33.33%;
+  text-align: center;
+  @media screen and (max-width: 768px) {
+    .column3 {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 600px) {
+    .column2 {
+      width: 100%;
+    }
+
+  }
+  
+}
+.row3{
+    background-color: #586DE0;
+}
+.row3:after{
     content: "";
   display: table;
   clear: both;
@@ -145,4 +171,5 @@ section .glass {
 
 
 }
+
 
