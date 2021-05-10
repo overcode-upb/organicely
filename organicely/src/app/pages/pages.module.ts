@@ -19,6 +19,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { LoadingSpinnerComponent } from '../components/loading-spinner/loading-spinner.component';
+import { CreateZoomComponent } from './create-zoom/create-zoom.component';
+import { NgApexchartsModule } from "ng-apexcharts";
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { LoadingSpinnerComponent } from '../components/loading-spinner/loading-s
     CreateEventComponent,
     ListEventsComponent,
     ProfileComponent,
+    CreateZoomComponent,
   ],
   imports: [
     CommonModule,
@@ -45,7 +48,8 @@ import { LoadingSpinnerComponent } from '../components/loading-spinner/loading-s
     MatInputModule,
     NgxMaterialTimepickerModule,
     ReactiveFormsModule,
-    MatGridListModule
+    MatGridListModule,
+    NgApexchartsModule
   ]
 })
 export class PagesModule { }

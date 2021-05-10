@@ -5,6 +5,7 @@ import { ProfileComponent } from './profile/profile.component';
 import {CreateEventComponent} from './create-event/create-event.component';
 import { HomeComponent } from './home/home.component';
 import { ListEventsComponent } from './list-events/list-events.component';
+import { CreateZoomComponent } from './create-zoom/create-zoom.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       {path: 'home', component: HomeComponent},
       {path: 'levent/:id', component: ListEventsComponent},
       {path: 'profile', component: ProfileComponent},
-      {path: 'crevent', component: CreateEventComponent}
+      {path: 'crevent', component: CreateEventComponent},
+      {path: 'creventzoom', component: CreateZoomComponent}
     ]
   }
 ];
