@@ -14,6 +14,10 @@ export class LoginComponent {
 
   error = false;
 
+  // Use this url for Zoom Log In:
+  // https://zoom.us/oauth/authorize?client_id=jN8GttxJRnOlIGnVsDyy0Q&response_type=code&redirect_uri=https%3A%2F%2Forganicely.web.app%2Fpages%2Fhome
+  // Alternatively, use the Zoom console to regenerate the URL
+
   ngOnInit() {
     if(this.authService.verifyLogged()){
       this.router.navigate(['../pages/home']);

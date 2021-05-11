@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,17 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+	code: string;
+
+  constructor(private authService: AuthService,
+  						private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    
+  	this.activatedRoute.queryParams.subscribe(
+  		params => {
+    		this.code = params.orderby;
+    	}
+    );  
   }
 
   checkSession(){
