@@ -1,5 +1,5 @@
 
-<div class="blue">
+<div class="blue" style="background-image: url(../../../assets/register1.png)">
   <h1 class="text-center"> BIENVENIDO A <strong> ORGANICELY </strong> </h1>  
 
   <div class="container">
@@ -38,7 +38,7 @@
               </div>
 
               <mat-form-field>
-                <mat-label>Password</mat-label>
+                <mat-label>Contraseña</mat-label>
                 <input matInput
                       type="password"
                       name="password"
@@ -61,7 +61,7 @@
             </div>
           </mat-card-content>
           <mat-card-actions style="text-align:center">
-            <button mat-button [disabled]="form.invalid" (click)="onLogin(form)">Login</button>
+            <button mat-button [disabled]="form.invalid" (click)="onLogin(form)">Ingresar</button>
             <button mat-button  (click)="onRegister()" >Registrarse</button>
           </mat-card-actions>  
       </mat-card>
