@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 
@@ -13,6 +14,9 @@ export class LoginComponent {
   }
 
   error = false;
+  @ViewChild('form',{static:true}) form : NgForm;
+  email:string;
+  password:string;
 
   ngOnInit() {
     if(this.authService.verifyLogged()){
