@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../shared/services/auth.service'
 import { UsersService } from '../../shared/services/users.service';
 import { Subscription } from 'rxjs';
 import {Upload} from '../../shared/models/upload';
 import {UploadService} from '../../shared/services/upload.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +19,9 @@ export class RegisterComponent implements OnInit {
 	selectedFiles?: FileList
   currentFileUpload: Upload;
   percentage: number;
+  
+  @ViewChild('form',{static:true}) form : NgForm;
+  emailUI:string;
 
   constructor(private router: Router,
   		 				private authService: AuthService,

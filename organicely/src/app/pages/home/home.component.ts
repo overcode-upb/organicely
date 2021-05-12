@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { ActivatedRoute } from '@angular/router';
+import {ZoomService} from '../../shared/services/zoom.service';
+
 
 @Component({
   selector: 'app-home',
@@ -8,10 +11,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+
+
+  constructor(private authService: AuthService,
+  						) { }
 
   ngOnInit(): void {
-    
+
   }
 
   checkSession(){

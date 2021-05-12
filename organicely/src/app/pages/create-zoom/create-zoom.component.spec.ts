@@ -1,4 +1,8 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 import { CreateZoomComponent } from './create-zoom.component';
 
@@ -8,7 +12,9 @@ describe('CreateZoomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateZoomComponent ]
+      declarations: [ CreateZoomComponent ],
+      imports: [ FormsModule, RouterTestingModule, HttpClientTestingModule ],
+      providers: [AuthService]
     })
     .compileComponents();
   });
@@ -19,7 +25,7 @@ describe('CreateZoomComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('El componente se crea correctamente', () => {
     expect(component).toBeTruthy();
   });
 });

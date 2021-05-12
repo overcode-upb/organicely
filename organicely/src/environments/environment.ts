@@ -20,7 +20,8 @@ export const environment = {
     messagingSenderId: "244873638602",
     appId: "1:244873638602:web:fb801966fc37e7563b7a33",
     measurementId: "G-L6371R4MPH"
-  }
+  },
+  zoomAuth : "ak44R3R0eEpSbk9sSUduVnNEeXkwUTpPSncwVHVTT3JRNVNMRDVWeGFnelh5eW96RXpyZngyMQ=="
 };
 /*
  * For easier debugging in development mode, you can import the following file

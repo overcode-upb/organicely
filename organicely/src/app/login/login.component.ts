@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../shared/services/auth.service';
 
@@ -13,6 +14,13 @@ export class LoginComponent {
   }
 
   error = false;
+  @ViewChild('form',{static:true}) form : NgForm;
+  email:string;
+  password:string;
+
+  // Use this url for Zoom Log In:
+  // https://zoom.us/oauth/authorize?client_id=jN8GttxJRnOlIGnVsDyy0Q&response_type=code&redirect_uri=https%3A%2F%2Forganicely.web.app%2Fpages%2Fhome
+  // Alternatively, use the Zoom console to regenerate the URL
 
   ngOnInit() {
     if(this.authService.verifyLogged()){
