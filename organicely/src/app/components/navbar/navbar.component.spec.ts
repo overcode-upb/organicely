@@ -1,5 +1,5 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { async,ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from 'src/app/shared/services/auth.service';
@@ -28,4 +28,12 @@ describe('NavbarComponent', () => {
   it('El componente se crea correctamente', () => {
     expect(component).toBeTruthy();
   });
+
+  /*it('Navbar logout funciona', async(() => {
+    fixture.whenStable().then(() => {
+      let button = fixture.debugElement.nativeElement.querySelector('button');
+      button.click();
+      expect(component.logOut).toHaveBeenCalled();
+    });
+  }));*/
 });

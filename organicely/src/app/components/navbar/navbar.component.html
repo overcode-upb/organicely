@@ -22,7 +22,7 @@
 			<div *ngIf="checkSession()">
 				<div class="navbar-nav ml-auto action-buttons">
 					<a routerLink='/pages/profile' class="nav-link nav-item">Perfil</a>
-					<button (click)="logOut()" class="btn btn-primary dropdown-toggle sign-up-btn">Logout</button>
+					<button [logout]="true" (click)="logOut()" class="btn btn-primary dropdown-toggle sign-up-btn">Logout</button>
 				</div>
 			</div>
 		</div>
