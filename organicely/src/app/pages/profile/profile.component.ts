@@ -1,11 +1,12 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { EventService } from 'src/app/shared/services/event.service';
 import { UsersService } from 'src/app/shared/services/users.service';
-
+import {environment} from '../../../environments/environment';
+import {ZoomService} from '../../shared/services/zoom.service';
 import {
   ChartComponent,
   ApexAxisChartSeries,
@@ -16,6 +17,7 @@ import {
   ApexStroke,
   ApexGrid
 } from "ng-apexcharts";
+
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -36,11 +38,15 @@ export class ProfileComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
-  constructor(private router: Router, 
+  code: string;
+
+  constructor(private router: Router,
     private authService: AuthService,
     private userService: UsersService,
-    private eventService: EventService) { 
-    
+    private eventService: EventService,
+              private activatedRoute: ActivatedRoute,
+              private zoomService: ZoomService) {
+
     this.chartOptions = {
         series: [
           {
@@ -82,7 +88,7 @@ export class ProfileComponent implements OnInit {
         }
       };
     }
-    
+
 
     userInfo: any = [];
     userEmail: string;
@@ -94,9 +100,9 @@ export class ProfileComponent implements OnInit {
     apellido = '';
     bio='';
     imageUrl='';
-    
+
   ngOnInit(): void {
-    
+
     if(this.checkSession()) {
       this.userInfo = [];
 
@@ -115,9 +121,19 @@ export class ProfileComponent implements OnInit {
         res => {
           Object.entries(res).map((p: any) => this.eventsByUser.push({id: p[0], ...p[1]}));
         });
-      }   
+      }
       console.log(this.eventsByUser);
-      
+
+    this.activatedRoute.queryParams.subscribe(
+      params => {
+        if (params.code) {
+          this.code = params.code;
+          let header = new HttpHeaders();
+          header.set('Authorization', `Basic ${environment.zoomAuth}`)
+          console.log(this.zoomService.getAccessToken(this.code, header));
+        }
+      }
+    );
   }
 
   checkSession(){
@@ -151,6 +167,6 @@ export class ProfileComponent implements OnInit {
       },
     ]
 
-  
+
 
 }
