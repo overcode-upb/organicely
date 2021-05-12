@@ -36,10 +36,10 @@ jobs:
       - name: Building
         run: |
           cd organicely
-          npm run build\
-
+          npm run build --prod
       - name: Testing
         run: |
+          cd organicely
           npm test -- --no-watch --no-progress --browers=ChromeHeadlessCI
 
       - name: Deploying
