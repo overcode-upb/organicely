@@ -38,6 +38,10 @@ jobs:
           cd organicely
           npm run build\
 
+      - name: Testing
+        run: |
+          npm test -- --no-watch --no-progress --browers=ChromeHeadlessCI
+
       - name: Deploying
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
