@@ -129,6 +129,7 @@ export class ProfileComponent implements OnInit {
           this.code = params.code;
           let header = new HttpHeaders();
           header.set('Authorization', `Basic ${environment.zoomAuth}`)
+          header.set('Access-Control-Allow-Origin', `https://organicely.web.app`)
           this.zoomService.getAccessToken(this.code, header).subscribe(
             res => {
               console.log(res);
