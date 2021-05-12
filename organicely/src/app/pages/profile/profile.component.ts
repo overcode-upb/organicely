@@ -2,6 +2,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import { Observable } from 'rxjs';
+import { AngularFireFunctions } from '@angular/fire/functions';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { EventService } from 'src/app/shared/services/event.service';
 import { UsersService } from 'src/app/shared/services/users.service';
@@ -43,6 +44,7 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router,
     private authService: AuthService,
     private userService: UsersService,
+    private functions: AngularFireFunctions,
     private eventService: EventService,
               private activatedRoute: ActivatedRoute,
               private zoomService: ZoomService) {
@@ -142,6 +144,15 @@ export class ProfileComponent implements OnInit {
 
   checkSession(){
     return this.authService.verifyLogged();
+  }
+
+  callCloudFunction() {
+    // Use the function name from Firebase
+    const callable = this.functions.httpsCallable('redirectOauth');
+
+    // Create an Observable and pass any data you want to the function
+    const obs = callable({});
+
   }
 
   events =  [

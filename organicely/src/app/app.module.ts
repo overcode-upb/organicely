@@ -18,6 +18,10 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
 import { registerLocaleData } from '@angular/common';
+import {
+  AngularFireFunctionsModule,
+  REGION,
+} from '@angular/fire/functions';
 
 import { ZoomInterceptor } from './shared/interceptors/zoom.interceptor';
 
@@ -70,10 +74,12 @@ registerLocaleData(localeEs);
     FormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireFunctionsModule,
   ],
   providers: [
     AuthService,
+    { provide: REGION, useValue: 'us-central1' },
     { provide: LOCALE_ID, useValue: 'es-bo'},
     //{provide: DateAdapter, useClass: AppDateAdapter},
     //{provide: MAT_DATE_FORMATS, useValue: MY_DATE_FORMATS},
