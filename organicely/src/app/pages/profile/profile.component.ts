@@ -130,7 +130,11 @@ export class ProfileComponent implements OnInit {
           this.code = params.code;
           let header = new HttpHeaders();
           header.set('Authorization', `Basic ${environment.zoomAuth}`)
-          console.log(this.zoomService.getAccessToken(this.code, header));
+          this.zoomService.getAccessToken(this.code, header).subscribe(
+            res => {
+              console.log(res);
+              //Object.entries(res).map((p: any) => this.eventsByUser.push({id: p[0], ...p[1]}));
+            });
         }
       }
     );
