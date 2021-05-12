@@ -1,9 +1,9 @@
-<div class="blue">
+<div class="blue" style="background-image: url(../../../assets/register1.png)" >
     <h1 class="text-center"> REGISTRATE A <strong> ORGANICELY </strong> </h1>
 
-    <mat-card class="example-card" style="width:1000px;">
-        <mat-card-header style="padding-left: 180px">
-            <mat-card-title>Ingresa tus datos</mat-card-title>
+    <mat-card class="example-card">
+        <mat-card-header style="align-content: left;">
+            <mat-card-title style="color: white;">Ingresa tus datos</mat-card-title>
         </mat-card-header>
 
         <mat-card-content>
@@ -96,8 +96,8 @@
             </form>
         </mat-card-content>
 
-        <button mat-raised-button (click)="openInput()">Suba su foto *</button>
-        <p class="py-2"> <strong> Nota: </strong>Subir una imagen es obligatorio para poder registrarse. </p>
+        <button mat-raised-button (click)="openInput()">Subir una foto *</button>
+        <p class="py-4" style="color: white;"> <strong> Nota: </strong>Subir una imagen es obligatorio para poder registrarse. </p>
         <input id="fileInput" hidden type="file" (change)="selectFile($event)" name="file" ngModel #fileIU="ngModel" required>
 
 

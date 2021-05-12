@@ -25,15 +25,25 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Verfying path
-        run: ls -a
-
       - name: Installing dependencies
         run: |
           cd organicely
           npm install
 
-      - name: Building...
+      - name: Building
         run: |
           cd organicely
-          npm run build
+          npm run build --prod
+          
+      - name: Testing
+        run: |
+          cd organicely
+          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
+      - name: Deploying
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ORGANICELY }}'
+          channelId: live
+          projectId: organicely

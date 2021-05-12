@@ -3,16 +3,16 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { NavbarComponent } from './navbar.component';
 
-import { CreateZoomComponent } from './create-zoom.component';
 
-describe('CreateZoomComponent', () => {
-  let component: CreateZoomComponent;
-  let fixture: ComponentFixture<CreateZoomComponent>;
+describe('NavbarComponent', () => {
+  let component: NavbarComponent;
+  let fixture: ComponentFixture<NavbarComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateZoomComponent ],
+      declarations: [ NavbarComponent ],
       imports: [ FormsModule, RouterTestingModule, HttpClientTestingModule ],
       providers: [AuthService]
     })
@@ -20,7 +20,7 @@ describe('CreateZoomComponent', () => {
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateZoomComponent);
+    fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

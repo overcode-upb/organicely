@@ -4,23 +4,23 @@ import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
-import { CreateZoomComponent } from './create-zoom.component';
+import { HomeComponent } from './home.component';
 
-describe('CreateZoomComponent', () => {
-  let component: CreateZoomComponent;
-  let fixture: ComponentFixture<CreateZoomComponent>;
+describe('HomeComponent', () => {
+  let component: HomeComponent;
+  let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CreateZoomComponent ],
+      declarations: [ HomeComponent ],
       imports: [ FormsModule, RouterTestingModule, HttpClientTestingModule ],
       providers: [AuthService]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CreateZoomComponent);
+    fixture = TestBed.createComponent(HomeComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
