@@ -7,10 +7,13 @@ import {ZoomService} from '../../shared/services/zoom.service';
   templateUrl: './create-zoom.component.html',
   styleUrls: ['./create-zoom.component.scss']
 })
+
 export class CreateZoomComponent implements OnInit {
 
   constructor( private authService: AuthService,
                private zoomService: ZoomService) { }
+
+  selected = '1';
 
   ngOnInit(): void {
   }
@@ -26,4 +29,8 @@ export class CreateZoomComponent implements OnInit {
       type: form.platform // por ahora
     }
   }
+
+  
+
+  
 }
