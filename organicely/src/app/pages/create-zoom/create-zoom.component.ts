@@ -44,10 +44,7 @@ export class CreateZoomComponent implements OnInit {
       }
     } else {
       body = {
-        topic: form.value.name,
-        type: this.selected,
-        password: form.value.password,
-        agenda: form.value.agenda
+        type: this.selected
       }
     }
 
@@ -63,7 +60,7 @@ export class CreateZoomComponent implements OnInit {
       err => {
         console.log("Error retrieving meetings: ", err);
       });
-    //console.log(body)
+    console.log(body)
   }
 
 
