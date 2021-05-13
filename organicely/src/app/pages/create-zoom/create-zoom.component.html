@@ -28,7 +28,7 @@
 
                     <mat-form-field appearance="fill">
                         <mat-label>Tipo de reunión</mat-label>
-                        <mat-select [(value)]="selected" required>
+                        <mat-select name="selected" [(value)]="selected" required>
                           <mat-option value="1">Instantanea</mat-option>
                           <mat-option value="2">Programada</mat-option>
                         </mat-select>
@@ -40,8 +40,7 @@
                             <mat-label>Fecha de inicio:</mat-label>
                             <input matInput
                             type="text"
-                            name="type "
-                            value="fdi"
+                            name="fdi "
                             ngModel
                             #fdiUI="ngModel"
                             checked placeholder="2020-03-31" required>
@@ -53,8 +52,7 @@
                             <mat-label>Hora de inicio:</mat-label>
                             <input matInput
                             type="text"
-                            name="type "
-                            value="hdi"
+                            name="hdi"
                             ngModel
                             #hdiUI="ngModel"
                             checked placeholder="12:02:00" required>
@@ -76,7 +74,7 @@
                     <mat-form-field>
                         <mat-label>Agenda:</mat-label>
                         <input matInput
-                        type="agenda"
+                        type="text"
                         name="agenda"
                         ngModel
                         #agendaUI="ngModel">

@@ -22,6 +22,7 @@ import { LoadingSpinnerComponent } from '../components/loading-spinner/loading-s
 import { CreateZoomComponent } from './create-zoom/create-zoom.component';
 import { NgApexchartsModule } from "ng-apexcharts";
 import {MatSelectModule} from '@angular/material/select';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatGridListModule,
     NgApexchartsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule
   ]
 })
 export class PagesModule { }
