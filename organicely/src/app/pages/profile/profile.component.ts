@@ -105,7 +105,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     if(this.checkSession()) {
       this.userInfo = [];
-      this.getMeetings();
       this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
           res => {
             this.showSpinner = false;
@@ -136,6 +135,7 @@ export class ProfileComponent implements OnInit {
             res => {
               console.log("Access Response: ", res);
               this.zoomService.setAccessToken(res.access_token);
+              this.getMeetings();
             },
             err => {
                console.log("Access Token Failure: ", err);
