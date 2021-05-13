@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import {ZoomService} from '../../shared/services/zoom.service';
 import {Router} from '@angular/router';
-import {log} from 'util';
 
 @Component({
   selector: 'app-create-zoom',
