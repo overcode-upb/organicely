@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from 'src/app/components/navbar/navbar.component';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
+import {environment} from '../../../environments/environment';
 
 import { CreateEventComponent } from './create-event.component';
 
@@ -16,7 +19,8 @@ describe('CreateEventComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ CreateEventComponent ],
-      imports: [ FormsModule, RouterTestingModule, HttpClientTestingModule ],
+      imports: [ FormsModule, RouterTestingModule, HttpClientTestingModule,  AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireDatabaseModule],
       providers: [NavbarComponent,AuthService]
     })
       .compileComponents();
