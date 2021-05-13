@@ -23,7 +23,4 @@ export class ZoomService {
   	localStorage.setItem("acc", ac);
   }
   
-  // Events
-
-
 }
