@@ -36,6 +36,8 @@ export type ChartOptions = {
 })
 export class ProfileComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
+  displayedColumns: string[] = ['nombre', 'tipo','horariofecha', 'URL'];
+  zoomMeeting: any = [];
   
   public chartOptions: Partial<ChartOptions>;
   code: string;
@@ -101,10 +103,8 @@ export class ProfileComponent implements OnInit {
     imageUrl = '';
 
   ngOnInit(): void {
-
     if(this.checkSession()) {
       this.userInfo = [];
-
       this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
           res => {
             this.showSpinner = false;
@@ -135,6 +135,7 @@ export class ProfileComponent implements OnInit {
             res => {
               console.log("Access Response: ", res);
               this.zoomService.setAccessToken(res.access_token);
+              this.getMeetings();
             },
             err => {
                console.log("Access Token Failure: ", err);
@@ -142,11 +143,30 @@ export class ProfileComponent implements OnInit {
         }
       }
     );
-
   }
 
   checkSession(){
     return this.authService.verifyLogged();
+  }
+
+  getMeetings() : void {
+    this.zoomMeeting = [];
+    this.zoomService.makeRequest({
+      path: "https://api.zoom.us/v2/users/me/meetings",
+      token: localStorage.getItem("ac"),
+      body: {
+        type: "scheduled",
+        page_size: 30
+      }
+    }).subscribe(
+      res => {
+        console.log("Meetings received! ", res);
+        console.log("Meetings: ", res.meetings);
+        this.zoomMeeting = res.meetings;
+      },
+      err => {
+        console.log("Error retrieving meetings: ", err);
+      });
   }
 
   events =  [
@@ -175,7 +195,5 @@ export class ProfileComponent implements OnInit {
         "urlInfo": "lol"
       },
     ]
-
-
-
+  
 }
