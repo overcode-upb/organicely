@@ -28,12 +28,4 @@ describe('NavbarComponent', () => {
   it('El componente se crea correctamente', () => {
     expect(component).toBeTruthy();
   });
-
-  /*it('Navbar logout funciona', async(() => {
-    fixture.whenStable().then(() => {
-      let button = fixture.debugElement.nativeElement.querySelector('button');
-      button.click();
-      expect(component.logOut).toHaveBeenCalled();
-    });
-  }));*/
 });

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light">
 	<a href="#" class="navbar-brand">Orga<b>nicely</b></a>  		
-	<button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+	<button type="button" class="navbar-toggler" id="toggle" data-toggle="collapse" data-target="#navbarCollapse">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<!-- Collection of nav links, forms, and other content for toggling -->
@@ -22,7 +22,7 @@
 			<div *ngIf="checkSession()">
 				<div class="navbar-nav ml-auto action-buttons">
 					<a routerLink='/pages/profile' class="nav-link nav-item">Perfil</a>
-					<button [logout]="true" (click)="logOut()" class="btn btn-primary dropdown-toggle sign-up-btn">Logout</button>
+					<button (click)="logOut()" id="logout" class="btn btn-primary dropdown-toggle sign-up-btn">Logout</button>
 				</div>
 			</div>
 		</div>
