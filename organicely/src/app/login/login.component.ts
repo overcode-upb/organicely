@@ -41,7 +41,7 @@ export class LoginComponent {
         this.router.navigate(['../pages/home']);
       },
       err => {
-        this.error=true;
+        this.error = true;
         //console.log('LOGIN ERROR: ');
       }
     ) 
