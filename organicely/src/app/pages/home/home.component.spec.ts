@@ -29,14 +29,18 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('Revisar que todas las imagenes en "SOBRE NOSOTROS" se carguen correctamente', () => {
+  it('Revisar que todas las imagenes en "CREAR EVENTOS" se carguen correctamente', () => {
     const ele = fixture.debugElement.nativeElement.querySelectorAll('img');
         expect(ele[0]['src']).toContain('400.png'); 
+        
+  });
+
+  it('Revisar que todas las imagenes en "SOBRE NOSOTROS" se carguen correctamente', () => {
+    const ele = fixture.debugElement.nativeElement.querySelectorAll('img');
         expect(ele[1]['src']).toContain('wifi.png'); 
         expect(ele[2]['src']).toContain('time.png'); 
         expect(ele[3]['src']).toContain('money.png');
 
   });
-
 });
 
