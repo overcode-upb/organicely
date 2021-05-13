@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import {ZoomService} from '../../shared/services/zoom.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-create-zoom',
@@ -10,7 +11,8 @@ import {ZoomService} from '../../shared/services/zoom.service';
 
 export class CreateZoomComponent implements OnInit {
 
-  constructor( private authService: AuthService,
+  constructor( private router: Router,
+               private authService: AuthService,
                private zoomService: ZoomService) { }
 
   selected = '1';
@@ -43,7 +45,8 @@ export class CreateZoomComponent implements OnInit {
       }
     }).subscribe(
       res => {
-        console.log("Meetings received! ", res);
+        window.alert("La reunión fue creada con éxito.");
+        this.router.navigate(['pages/home'])
       },
       err => {
         console.log("Error retrieving meetings: ", err);

@@ -63,6 +63,7 @@ export class CreateEventComponent implements OnInit {
   		platform: form.value.platform
   	}).subscribe(
   		res => {
+        window.alert("El evento fue creado con éxito.");
   			this.router.navigate(['pages/home'])
   		},
   		err => {

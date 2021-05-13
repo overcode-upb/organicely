@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
   displayedColumns: string[] = ['nombre', 'tipo','horariofecha', 'URL'];
   zoomMeeting: any = [];
-  
+
   public chartOptions: Partial<ChartOptions>;
   code: string;
 
@@ -153,7 +153,7 @@ export class ProfileComponent implements OnInit {
     this.zoomMeeting = [];
     this.zoomService.makeRequest({
       path: "https://api.zoom.us/v2/users/me/meetings",
-      token: localStorage.getItem("ac"),
+      token: localStorage.getItem("acc"),
       body: {
         type: "scheduled",
         page_size: 30
@@ -195,5 +195,5 @@ export class ProfileComponent implements OnInit {
         "urlInfo": "lol"
       },
     ]
-  
+
 }
