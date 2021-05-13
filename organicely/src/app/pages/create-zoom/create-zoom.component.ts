@@ -33,11 +33,11 @@ export class CreateZoomComponent implements OnInit {
   createMeeting(form: any) : void {
     this.zoomService.makeRequest({
       path: "https://api.zoom.us/v2/users/me/meetings",
-      token: localStorage.getItem("ac"),
+      token: localStorage.getItem("acc"),
       body: {
         topic: form.name,
-        type: form.selected, 
-        start_time: form.fdi + form.hdi,
+        type: form.selected,
+        start_time: form.fdi + 'T' + form.hdi,
         password: form.password,
         agenda: form.agenda
       }
@@ -50,7 +50,7 @@ export class CreateZoomComponent implements OnInit {
       });
   }
 
-  
 
-  
+
+
 }
