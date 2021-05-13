@@ -34,11 +34,11 @@ export class CreateZoomComponent implements OnInit {
 
   createMeeting(form: any) : void {
     let body = {
-      topic: form.name,
+      topic: form.value.name,
         type: this.selected,
-        start_time: form.fdi + 'T' + form.hdi,
-        password: form.password,
-        agenda: form.agenda
+        start_time: form.value.fdi + 'T' + form.value.hdi,
+        password: form.value.password,
+        agenda: form.value.agenda
     }
     this.zoomService.makeRequest({
       path: "https://api.zoom.us/v2/users/me/meetings",
