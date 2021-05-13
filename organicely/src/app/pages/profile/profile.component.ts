@@ -36,70 +36,69 @@ export type ChartOptions = {
 })
 export class ProfileComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
+  
   public chartOptions: Partial<ChartOptions>;
-
   code: string;
 
   constructor(private router: Router,
-    private authService: AuthService,
-    private userService: UsersService,
-    private eventService: EventService,
+              private authService: AuthService,
+              private userService: UsersService,
+              private eventService: EventService,
               private activatedRoute: ActivatedRoute,
               private zoomService: ZoomService) {
 
     this.chartOptions = {
-        series: [
-          {
-            name: "Asistentes",
-            data: [10, 41, 35, 51, 49]
-          }
-        ],
-        chart: {
-          height: 350,
-          type: "line",
-          zoom: {
-            enabled: false
-          }
-        },
-        dataLabels: {
-          enabled: false
-        },
-        stroke: {
-          curve: "straight"
-        },
-        title: {
-          text: "Asistencia en eventos recientes",
-          align: "left"
-        },
-        grid: {
-          row: {
-            colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-            opacity: 0.5
-          }
-        },
-        xaxis: {
-          categories: [
-            "Enero",
-            "Febrero",
-            "Marzo",
-            "Abril",
-            "Mayo"
-          ]
+      series: [
+        {
+          name: "Asistentes",
+          data: [10, 41, 35, 51, 49]
         }
-      };
-    }
-
+      ],
+      chart: {
+        height: 350,
+        type: "line",
+        zoom: {
+          enabled: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        curve: "straight"
+      },
+      title: {
+        text: "Asistencia en eventos recientes",
+        align: "left"
+      },
+      grid: {
+        row: {
+          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
+          opacity: 0.5
+        }
+      },
+      xaxis: {
+        categories: [
+          "Enero",
+          "Febrero",
+          "Marzo",
+          "Abril",
+          "Mayo"
+        ]
+      }
+    };
+  }
 
     userInfo: any = [];
     userEmail: string;
     eventsByUser: any = [];
 
-    showSpinner:boolean = true;
+    showSpinner: boolean = true;
 
-    nombre ='';
+    nombre = '';
     apellido = '';
-    bio='';
-    imageUrl='';
+    bio = '';
+    imageUrl = '';
 
   ngOnInit(): void {
 
@@ -127,17 +126,23 @@ export class ProfileComponent implements OnInit {
       params => {
         if (params.code) {
           this.code = params.code;
-          let header = new HttpHeaders();
-          header.set('Authorization', `Basic ${environment.zoomAuth}`)
-          header.set('Access-Control-Allow-Origin', `https://organicely.web.app`)
-          this.zoomService.getAccessToken(this.code, header).subscribe(
+          this.zoomService.getAccessToken({
+            code: this.code,
+            redirectUri: "https://organicely.web.app/pages/profile",
+            username: "jN8GttxJRnOlIGnVsDyy0Q",
+            password: "OJw0TuSOrQ5SLD5VxagzXyyozEzrfx21"
+          }).subscribe(
             res => {
-              console.log(res);
-              //Object.entries(res).map((p: any) => this.eventsByUser.push({id: p[0], ...p[1]}));
-            });
+              console.log("Access Response: ", res);
+              this.zoomService.setAccessToken(res.access_token);
+            },
+            err => {
+               console.log("Access Token Failure: ", err);
+          });
         }
       }
     );
+
   }
 
   checkSession(){
