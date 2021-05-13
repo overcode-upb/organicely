@@ -10,12 +10,12 @@ export class CardComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  @Input () nombre:string;
-  @Input () horario:string;
-  @Input () urlImage:string;
-  @Input () descripcion:string;
-  @Input () urlInfo:string;
-  @Input () masInfoUrl:string;
+  @Input () nombre:string = "";
+  @Input () horario:string = "";
+  @Input () urlImage:string= "";
+  @Input () descripcion:string= "";
+  @Input () urlInfo:string= "";
+  @Input () masInfoUrl:string= "";
 
   ngOnInit(): void {
   }

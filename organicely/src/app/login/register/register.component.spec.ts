@@ -53,4 +53,27 @@ describe('RegisterComponent', () => {
         expect(password.errors).toBeTruthy();
     });
   }));
+
+  it('Revisar que todos los campos obligatorios estén completos', async(() => {
+    fixture.whenStable().then(() => {
+
+        spyOn(component, 'onRegister');
+        let button = fixture.debugElement.nativeElement.querySelector('button');
+        let email = component.form.form.controls['email'];
+        let password = component.form.form.controls['password'];
+        let nombre = component.form.form.controls['nombre'];
+        let apellido = component.form.form.controls['apellido'];
+        let bio= component.form.form.controls['bio'];
+        
+        email.setValue('natha@angular.com');
+        password.setValue('123456');
+        nombre.setValue('Nathalia');
+        apellido.setValue('Coca');
+        bio.setValue('HOLAAAAAAA XDXDXD');
+        
+        expect(component.form.valid).toBeTruthy();
+        
+      });
+}));
+
 });

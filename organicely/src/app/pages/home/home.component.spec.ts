@@ -28,4 +28,15 @@ describe('HomeComponent', () => {
   it('El componente se crea correctamente', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Revisar que todas las imagenes en "SOBRE NOSOTROS" se carguen correctamente', () => {
+    const ele = fixture.debugElement.nativeElement.querySelectorAll('img');
+        expect(ele[0]['src']).toContain('400.png'); 
+        expect(ele[1]['src']).toContain('wifi.png'); 
+        expect(ele[2]['src']).toContain('time.png'); 
+        expect(ele[3]['src']).toContain('money.png');
+
+  });
+
 });
+
