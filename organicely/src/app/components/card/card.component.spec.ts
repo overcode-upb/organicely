@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { CardComponent } from './card.component';
 
@@ -24,4 +24,22 @@ describe('CardComponent', () => {
   it('El componente se crea correctamente', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Todos los inputs deben estar definidos', () => { 
+     expect(component.nombre).toBeDefined();
+     expect(component.horario).toBeDefined();
+     expect(component.urlImage).toBeDefined();
+     expect(component.urlInfo).toBeDefined();
+     expect(component.masInfoUrl).toBeDefined();
+  }); 
+
+  it('Revisar que los inputs lleguen correctamente', async(() => {
+    fixture.whenStable().then(() => {
+      expect(component.nombre).toBeDefined();
+      expect(component.horario).toBeDefined();
+      expect(component.urlImage).toBeDefined();
+      expect(component.urlInfo).toBeDefined();
+      expect(component.masInfoUrl).toBeDefined();
+    });
+  }));
 });
