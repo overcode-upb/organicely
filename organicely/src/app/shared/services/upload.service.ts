@@ -19,7 +19,7 @@ export class UploadService {
     let filePath;
     const extension:string  = '.' + upload.file.name.split('.')[1]
     if(event){
-      filePath = `/events/${email}${eventId}${extension}`;
+      filePath = `/events/${email}/${eventId}${extension}`;
     } else {
       filePath = `/icons/${email}/icon${extension}`;
     }
@@ -36,11 +36,11 @@ export class UploadService {
       })
     ).subscribe();
 
+    // @ts-ignore
+    email = email.replace('@','%40')
     if(event){
-      return 'hola'
+      return `https://firebasestorage.googleapis.com/v0/b/organicely.appspot.com/o/events%2F${email}%2F${eventId}${extension}?alt=media`;
     } else {
-      // @ts-ignore
-      email = email.replace('@','%40')
       return `https://firebasestorage.googleapis.com/v0/b/organicely.appspot.com/o/icons%2F${email}%2Ficon${extension}?alt=media`;
     }
   }
