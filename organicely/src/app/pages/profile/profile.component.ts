@@ -36,7 +36,7 @@ export type ChartOptions = {
 })
 export class ProfileComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
-  displayedColumns: string[] = ['topic', 'type', 'join_url'];
+  displayedColumns: string[] = ['nombre', 'tipo','horariofecha', 'URL'];
   zoomMeeting:any=[]
   
   public chartOptions: Partial<ChartOptions>;
@@ -103,7 +103,7 @@ export class ProfileComponent implements OnInit {
     imageUrl = '';
 
   ngOnInit(): void {
-
+    this.zoomMeetingAdd();
     if(this.checkSession()) {
       this.userInfo = [];
 
@@ -153,11 +153,11 @@ export class ProfileComponent implements OnInit {
 
   zoomMeetingAdd(){
     this.zoomMeeting.push(
-      {topic:'xd', type:'xd',join_url:'xd'},
-      {topic:'xe', type:'xd',join_url:'xd'},
-      {topic:'xr', type:'xd',join_url:'xd'},
-      {topic:'xt', type:'xd',join_url:'xd'},
-      {topic:'xg', type:'xd',join_url:'xd'}
+      {topic:'xd', type:'xd',join_url:'xd', start_time:'nao'},
+      {topic:'xe', type:'xd',join_url:'xd', start_time:'nao'},
+      {topic:'xr', type:'xd',join_url:'xd', start_time:'nao'},
+      {topic:'xt', type:'xd',join_url:'xd', start_time:'nao'},
+      {topic:'xg', type:'xd',join_url:'xd', start_time:'nao'}
     );
   }
 
