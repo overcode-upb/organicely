@@ -105,7 +105,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     if(this.checkSession()) {
       this.userInfo = [];
-      this.getMeetings()
+      this.getMeetings();
       this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
           res => {
             this.showSpinner = false;

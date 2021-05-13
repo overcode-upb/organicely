@@ -30,6 +30,25 @@ export class CreateZoomComponent implements OnInit {
     }
   }
 
+  createMeeting(form: any) : void {
+    this.zoomService.makeRequest({
+      path: "https://api.zoom.us/v2/users/me/meetings",
+      token: localStorage.getItem("ac"),
+      body: {
+        topic: form.name,
+        type: form.selected, 
+        start_time: form.fdi + form.hdi,
+        password: form.password,
+        agenda: form.agenda
+      }
+    }).subscribe(
+      res => {
+        console.log("Meetings received! ", res);
+      },
+      err => {
+        console.log("Error retrieving meetings: ", err);
+      });
+  }
 
   
 
