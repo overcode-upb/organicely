@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import {ZoomService} from '../../shared/services/zoom.service';
 import {Router} from '@angular/router';
+import {log} from 'util';
 
 @Component({
   selector: 'app-create-zoom',
@@ -33,16 +34,17 @@ export class CreateZoomComponent implements OnInit {
   }
 
   createMeeting(form: any) : void {
-    this.zoomService.makeRequest({
-      path: "https://api.zoom.us/v2/users/me/meetings",
-      token: localStorage.getItem("acc"),
-      body: {
-        topic: form.name,
+    let body = {
+      topic: form.name,
         type: this.selected,
         start_time: form.fdi + 'T' + form.hdi,
         password: form.password,
         agenda: form.agenda
-      }
+    }
+    this.zoomService.makeRequest({
+      path: "https://api.zoom.us/v2/users/me/meetings",
+      token: localStorage.getItem("acc"),
+      body: body
     }).subscribe(
       res => {
         window.alert("La reunión fue creada con éxito.");
@@ -51,6 +53,7 @@ export class CreateZoomComponent implements OnInit {
       err => {
         console.log("Error retrieving meetings: ", err);
       });
+    console.log(body)
   }
 
 
