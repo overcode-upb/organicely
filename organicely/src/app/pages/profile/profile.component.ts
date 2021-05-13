@@ -133,7 +133,7 @@ export class ProfileComponent implements OnInit {
             password: "OJw0TuSOrQ5SLD5VxagzXyyozEzrfx21"
           }).subscribe(
             res => {
-              console.log("Access Response: ", res);
+              // console.log("Access Response: ", res);
               this.zoomService.setAccessToken(res.access_token);
               this.getMeetings();
             },
