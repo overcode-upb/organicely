@@ -105,7 +105,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     if(this.checkSession()) {
       this.userInfo = [];
-
+      this.getMeetings()
       this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
           res => {
             this.showSpinner = false;
@@ -149,17 +149,14 @@ export class ProfileComponent implements OnInit {
     return this.authService.verifyLogged();
   }
 
-  getMeetings(form: any) : void {
+  getMeetings() : void {
     this.zoomMeeting = [];
     this.zoomService.makeRequest({
       path: "https://api.zoom.us/v2/users/me/meetings",
       token: localStorage.getItem("ac"),
       body: {
-        topic: form.name,
-        type: form.selected, 
-        start_time: form.fdi + form.hdi,
-        password: form.password,
-        agenda: form.agenda
+        type: "scheduled",
+        page_size: 30
       }
     }).subscribe(
       res => {
