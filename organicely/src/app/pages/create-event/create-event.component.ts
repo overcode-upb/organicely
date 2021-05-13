@@ -5,6 +5,8 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DatePipe } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {Upload} from '../../shared/models/upload';
+import {UploadService} from '../../shared/services/upload.service';
 
 @Component({
   selector: 'app-create-event',
@@ -21,13 +23,16 @@ export class CreateEventComponent implements OnInit {
 	eventobj: any = { eventDate: "" };
 	datePipe = new DatePipe('es-bo');
 	dateobj = this.eventobj.eventDate;
-	
-	
-	constructor(private router: Router, 
-  						private eventService: EventService,
-  						private authService: AuthService) {}
+  selectedFiles?: FileList
+  currentFileUpload: Upload;
 
-  
+
+	constructor(private router: Router,
+  						private eventService: EventService,
+  						private authService: AuthService,
+              private uploadService: UploadService) {}
+
+
   ngOnInit(): void {
   	if(this.checkSession()) {
   		this.authService.getLoggedInInfo({ idToken: localStorage.getItem("auth") }).subscribe(
@@ -51,8 +56,7 @@ export class CreateEventComponent implements OnInit {
   		description: form.value.description,
   		event_id: form.value.event_id,
   		event_url: form.value.event_url,
-  		image_url: "",
-  		// ^ to be implemented
+  		image_url: this.upload(form.value.name),
   		name: form.value.name,
   		owner_email: this.userEmail,
   		password: form.value.password,
@@ -78,4 +82,19 @@ export class CreateEventComponent implements OnInit {
 		platform
   */
 
+  openInput(){
+    document.getElementById("fileInput")?.click();
+  }
+
+  selectFile(event: any):void {
+    this.selectedFiles = event.target.files;
+  }
+
+  upload(name: any): string {
+    const file = this.selectedFiles?.item(0);
+    this.selectedFiles = undefined;
+
+    this.currentFileUpload = new Upload(<File> file);
+    return this.uploadService.uploadFileToStorage(this.currentFileUpload, true, name);
+  }
 }

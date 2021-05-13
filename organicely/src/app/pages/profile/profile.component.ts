@@ -105,7 +105,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     if(this.checkSession()) {
       this.userInfo = [];
-
       this.userService.getUserByEmail(localStorage.getItem('email')).subscribe(
           res => {
             this.showSpinner = false;
@@ -136,6 +135,7 @@ export class ProfileComponent implements OnInit {
             res => {
               console.log("Access Response: ", res);
               this.zoomService.setAccessToken(res.access_token);
+              this.getMeetings();
             },
             err => {
                console.log("Access Token Failure: ", err);
@@ -149,6 +149,25 @@ export class ProfileComponent implements OnInit {
     return this.authService.verifyLogged();
   }
 
+  getMeetings() : void {
+    this.zoomMeeting = [];
+    this.zoomService.makeRequest({
+      path: "https://api.zoom.us/v2/users/me/meetings",
+      token: localStorage.getItem("ac"),
+      body: {
+        type: "scheduled",
+        page_size: 30
+      }
+    }).subscribe(
+      res => {
+        console.log("Meetings received! ", res);
+        console.log("Meetings: ", res.meetings);
+        this.zoomMeeting = res.meetings;
+      },
+      err => {
+        console.log("Error retrieving meetings: ", err);
+      });
+  }
 
   events =  [
       {
