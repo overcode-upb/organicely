@@ -19,8 +19,12 @@ export class ZoomService {
   	return this.http.post("https://us-central1-emprende-ya-2cd09.cloudfunctions.net/api/zoom/request", body);
   }
 
+  public getRequest(body: any) : Observable<any> {
+    return this.http.get("https://us-central1-emprende-ya-2cd09.cloudfunctions.net/api/zoom/request", body);
+  }
+
   public setAccessToken(ac: any) {
   	localStorage.setItem("acc", ac);
   }
-  
+
 }

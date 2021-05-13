@@ -64,7 +64,7 @@ export class CreateEventComponent implements OnInit {
   	}).subscribe(
   		res => {
         window.alert("El evento fue creado con éxito.");
-  			this.router.navigate(['pages/home'])
+  			this.router.navigate(['pages/profile'])
   		},
   		err => {
   			//console.log("Error...: ", err)

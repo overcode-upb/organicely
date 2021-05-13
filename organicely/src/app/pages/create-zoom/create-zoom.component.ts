@@ -38,7 +38,7 @@ export class CreateZoomComponent implements OnInit {
       token: localStorage.getItem("acc"),
       body: {
         topic: form.name,
-        type: form.selected,
+        type: this.selected,
         start_time: form.fdi + 'T' + form.hdi,
         password: form.password,
         agenda: form.agenda
@@ -46,7 +46,7 @@ export class CreateZoomComponent implements OnInit {
     }).subscribe(
       res => {
         window.alert("La reunión fue creada con éxito.");
-        this.router.navigate(['pages/home'])
+        this.router.navigate(['pages/profile'])
       },
       err => {
         console.log("Error retrieving meetings: ", err);

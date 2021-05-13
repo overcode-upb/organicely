@@ -151,7 +151,7 @@ export class ProfileComponent implements OnInit {
 
   getMeetings() : void {
     this.zoomMeeting = [];
-    this.zoomService.makeRequest({
+    this.zoomService.getRequest({
       path: "https://api.zoom.us/v2/users/me/meetings",
       token: localStorage.getItem("acc"),
       body: {
